@@ -1,17 +1,29 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+  <div class="topo" id="topo">
+    <div class="menu" id="menu">
+      <p></p>
+      <table width="100%" border="0" texte-center>
+        <tbody>
+            <tr>
+                <th scope="row" ><ion-icon name="home"></ion-icon></th>
+                <td text-center><ion-icon name="paper"></ion-icon></td>
+                <td text-center><ion-icon name="contact"></ion-icon></td>
+              </tr>
+          <tr>
+            <th scope="row" ><button ion-button color="dark" clear>Home</button></th>
+            <td text-center><button ion-button color="dark" clear>Feed</button></td>
+            <td text-center><button ion-button color="dark" clear>Perfil</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+
+ <div #map id="map"></div>
+
 </ion-content>
