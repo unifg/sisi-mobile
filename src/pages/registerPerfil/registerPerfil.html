@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>
 <h3>SISI Cadastro</h3>
 </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="bg-image"> 
+<ion-content padding style="margin-top: 60px"> 
   <ion-item>
     <ion-label>Gênero</ion-label>
     <ion-select [(ngModel)]="Genero">
@@ -38,5 +38,7 @@
             <ion-label>Data de Nascimento </ion-label>
             <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="Data"></ion-datetime>
             </ion-item>
-            <button ion-button color="danger">Confirmar</button>
+            <p>
+            <button ion-button style="background-color:#990000; margin-top: 45px"(click)="goToRegisterPage()">Voltar</button>
+            <button ion-button style="background-color:#990000; margin-top: 45px">Confirmar</button>
 </ion-content>

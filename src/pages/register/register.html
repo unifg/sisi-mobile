@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>
 <h3>SISI Cadastro</h3>
 </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="bg-image"> 
+<ion-content padding style="margin-top: 50px">
   <ion-item>
       <ion-label color="primary" stacked></ion-label>
       <ion-input type="name" placeholder="Nome Completo"></ion-input>
@@ -31,6 +31,6 @@
     <ion-label color="primary" stacked></ion-label>
     <ion-input type="password" placeholder="Confirme Sua Senha"></ion-input>
   </ion-item>
-  <button ion-button color="danger">Cancelar</button>
-  <button ion-button color="danger">Próximo</button>
+  <button ion-button style="background-color:#990000; margin-top: 60px">Cancelar</button>
+  <button ion-button style="background-color:#990000; margin-top: 60px" (click)="goToRegisterPerfilPage()">Próximo</button>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RegisterPage } from '../register/register';
 
 /**
  * Generated class for the Register2Page page.
@@ -10,16 +11,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-register2',
-  templateUrl: 'register2.html',
+  selector: 'page-registerPerfil',
+  templateUrl: 'registerPerfil.html',
 })
-export class Register2Page {
+export class RegisterPerfilPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Register2Page');
+  goToRegisterPage(){
+    this.navCtrl.push(RegisterPage)
   }
+  
 
 }

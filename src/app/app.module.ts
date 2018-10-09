@@ -10,8 +10,11 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { RegisterPerfilPageModule } from '../pages/registerPerfil/registerPerfil.module';
 import { RegisterPageModule } from '../pages/register/register.module';
-import { Register2PageModule } from '../pages/register2/register2.module';
+
+
+
 
 @NgModule({
   declarations: [
@@ -19,13 +22,13 @@ import { Register2PageModule } from '../pages/register2/register2.module';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),  
-    RegisterPageModule,
-    Register2PageModule
+    IonicModule.forRoot(MyApp),
+    RegisterPerfilPageModule,
+    RegisterPageModule
     
   ],
   bootstrap: [IonicApp],
@@ -34,7 +37,8 @@ import { Register2PageModule } from '../pages/register2/register2.module';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage, 
+    
   ],
   providers: [
     StatusBar,
