@@ -23,6 +23,7 @@ export class HomePage {
       const position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 
       const options = {
+        
         center: position,
         zoom: 15,
         myTipyId: 'roadmap'
