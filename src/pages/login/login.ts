@@ -1,6 +1,6 @@
 import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, App, LoadingController, IonicPage } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -16,13 +16,41 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
+  public loginForm: any;
+  public backgroundImage = '../assets/img/background/globalbackground.jpg';
+
   tabsPage = TabsPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController,
+    public app: App
+  ) { }
+
+  login() {
+    const loading = this.loadingCtrl.create({
+      duration: 500
+    });
+
+    loading.onDidDismiss(() => {
+      const alert = this.alertCtrl.create({
+        title: 'Logged in!',
+        subTitle: 'Thanks for logging in.',
+        buttons: ['Dismiss']
+      });
+      alert.present();
+    });
+
+    loading.present();
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  goToSignup() {
+    // this.navCtrl.push(SignupPage);
+  }
+
+  goToResetPassword() {
+    // this.navCtrl.push(ResetPasswordPage);
   }
 
 }
