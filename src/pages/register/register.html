@@ -6,31 +6,66 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding style="margin-top: 50px">
-  <ion-item>
-    <ion-label color="primary" stacked></ion-label>
-    <ion-input type="name" [(ngModel)]="user.name" placeholder="Nome Completo"></ion-input>
-  </ion-item>
-  <p></p>
-  <ion-item>
-    <ion-label color="primary" stacked></ion-label>
-    <ion-input type="number" [(ngModel)]="user.cpf" placeholder="CPF"></ion-input>
-  </ion-item>
-  <p></p>
-  <ion-item>
-    <ion-label color="primary" stacked></ion-label>
-    <ion-input type="email" [(ngModel)]="user.email" placeholder="Email"></ion-input>
-  </ion-item>
-  <p></p>
-  <ion-item>
-    <ion-label color="primary" stacked></ion-label>
-    <ion-input type="password" [(ngModel)]="user.password" placeholder="Senha"></ion-input>
-  </ion-item>
-  <p></p>
-  <ion-item>
-    <ion-label color="primary" stacked></ion-label>
-    <ion-input type="password" placeholder="Confirme Sua Senha"></ion-input>
-  </ion-item>
-  <button ion-button style="background-color:#990000; margin-top: 60px" (click)="goToLoginPage()">Cancelar</button>
-  <button ion-button style="background-color:#990000; margin-top: 60px" (click)="goToRegisterPerfilPage()">Próximo</button>
+<ion-content padding style="margin-top: 20px">
+  <form [formGroup]="userForm" novalidate>
+    <ion-item>
+      <ion-label color="primary" stacked></ion-label>
+      <ion-input type="name" [(ngModel)]="name" formControlName="name" placeholder="Nome Completo"></ion-input>
+    </ion-item>
+    <p></p>
+    <ion-item>
+      <ion-label color="primary" stacked></ion-label>
+      <ion-input type="number" [(ngModel)]="cpf" formControlName="cpf" placeholder="CPF"></ion-input>
+    </ion-item>
+    <p></p>
+    <ion-item>
+      <ion-label color="primary" stacked></ion-label>
+      <ion-input type="email" [(ngModel)]="email" formControlName="email"  placeholder="Email"></ion-input>
+    </ion-item>
+    <p></p>
+    <ion-item>
+      <ion-label color="primary" stacked></ion-label>
+      <ion-input type="password" [(ngModel)]="password" formControlName="password" placeholder="password"></ion-input>
+    </ion-item>
+    <p></p>
+    <ion-item>
+      <ion-label color="primary" stacked></ion-label>
+      <ion-input type="password" placeholder="Confirme Sua Senha"></ion-input>
+    </ion-item>
+    <p></p>
+    <ion-item>
+      <ion-label>Gênero</ion-label>
+      <ion-select [(ngModel)]="gender" formControlName="gender" >
+        <ion-option value="f">Feminino</ion-option>
+        <ion-option value="m">Masculino</ion-option>
+        <ion-option value="tf">Trans-Feminino</ion-option>
+        <ion-option value="tm">Tras-Masculino</ion-option>
+        <ion-option value="ni">Não informado</ion-option>
+      </ion-select>
+    </ion-item>
+        <p></p>
+        <ion-item>
+          <ion-label>Cor</ion-label>
+          <ion-select [(ngModel)]="skin_color" formControlName="skin_color">
+            <ion-option value="b">Branco</ion-option>
+            <ion-option value="p1">Pardo</ion-option>
+            <ion-option value="p2">Preto</ion-option>
+            <ion-option value="a">Amarelo</ion-option>
+            <ion-option value="i">indígenas</ion-option>
+          </ion-select>
+        </ion-item>
+        <p></p>
+        <ion-item>
+          <ion-label color="primary" stacked></ion-label>
+          <ion-input type="number" [(ngModel)]="cellphone" formControlName="cellphone" placeholder="Telefone/Celular"></ion-input>
+        </ion-item>
+        <p></p>
+        <ion-item>
+          <ion-label>Data de Nascimento </ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="birthdate" formControlName="birthdate"></ion-datetime>
+        </ion-item>
+        <p></p>
+        <button ion-button style="background-color:#990000;" (click)="goToLoginPage()">Cancelar</button>
+        <button ion-button style="background-color:#990000;" [disabled]="!userForm.valid" (click)="goToRegisterPerfilPage()">Próximo</button>
+  </form>
 </ion-content>
