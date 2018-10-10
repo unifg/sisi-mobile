@@ -1,46 +1,32 @@
 #map {
-    height: 100%;
+    height: 320px;
     width: 100%;
 }
-div#menu {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    
+.toolbar-background-md {
+  border-color: #b2b2b2;
+  background: #222;
+}
+.toolbar-title-md {
+  color: #FFFFFF;
+}
+.button-md {
+  border-radius: 2px;
+  overflow: hidden;
+  height: 3.3rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #990000;
 
 }
-	div#topo{
-		margin: 0;
 
-    }	
-    
-    ion-card-content.card-content.card-content-md {
-        background-color: black;
-    }   
-    ion-header {
-        left: 0;
-        top: 0;
-        position: absolute;
-        z-index: 10;
-        display: block;
-        width: 100%;
-        background: #222222;
-        color: white;
-      }
-      .button-clear-md-dark {
-        border-color: transparent;
-        color: #ffffff;
-        background-color: transparent;
-        font-size: 13px;
-      }
-      .button-clear-md-dark.activated {
-        background-color: rgba(158, 158, 158, 0.2);
-        -webkit-box-shadow: none;
-        box-shadow: none;
-      }
-      
-      .button-clear-md-dark:hover:not(.disable-hover) {
-        color: #fff;
-        
-      }
+.button-md:hover:not(.disable-hover) {
+  background-color: #990000;
+}
 
-    
+.button-md.activated {
+  background-color: #990000;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21), 0 0 0 0 transparent;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21), 0 0 0 0 transparent;
+}

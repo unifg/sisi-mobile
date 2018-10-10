@@ -1,28 +1,40 @@
 <ion-header>
-  <div class="topo" id="topo">
-    <div class="menu" id="menu">
-      <p></p>
-      <table width="100%" border="0" texte-center>
-        <tbody>
-            <tr>
-                <th scope="row" ><ion-icon name="home"></ion-icon></th>
-                <td text-center><ion-icon name="paper"></ion-icon></td>
-                <td text-center><ion-icon name="contact"></ion-icon></td>
-              </tr>
-          <tr>
-            <th scope="row" ><button ion-button color="dark" clear>Home</button></th>
-            <td text-center><button ion-button color="dark" clear>Feed</button></td>
-            <td text-center><button ion-button color="dark" clear>Perfil</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    
-  </div>
+  <ion-navbar>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  
- <div #map id="map"></div>
 
+  <div #menu id="menu" text-center>
+      
+  <!-- Float the icon left -->
+<button ion-button icon-start>
+  <ion-icon name="home"></ion-icon>
+  Home
+</button>
+
+  <!-- Float the icon left -->
+  <button ion-button icon-start>
+    <ion-icon name="paper"></ion-icon>
+    Feed
+  </button>
+
+    <!-- Float the icon left -->
+<button ion-button icon-start>
+  <ion-icon name="contact"></ion-icon>
+  Perfil
+</button>
+
+</div>
+<p></p>
+  
+<div #map id="map"></div>
+<p></p>
+
+<button ion-button icon-only>
+    <ion-icon name="md-add-circle"></ion-icon>
+  </button>
 </ion-content>

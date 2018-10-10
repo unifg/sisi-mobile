@@ -25,11 +25,17 @@ export class HomePage {
       const options = {
         
         center: position,
-        zoom: 15,
+        zoom: 18,
         myTipyId: 'roadmap'
       };
 
       const map = new google.maps.Map(this.map.nativeElement, options);
+      var marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: 'Você está aqui!'
+      });
+
 
     }).catch( err => console.log(err));
     
