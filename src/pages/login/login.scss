@@ -11,6 +11,12 @@ page-login {
     background: transparent !important;
     background-color: transparent !important;
   }
+  .bg-image{
+    background-image:url('../assets/img/background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
   .header-md::after,
   .toolbar-background-ios {
     background-image: none;
