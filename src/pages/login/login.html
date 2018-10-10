@@ -4,7 +4,6 @@
       <ion-title>Login</ion-title>
     </ion-navbar>
   </ion-header>
-
   <div padding style="padding-top: 35%;">
     <ion-row>
         <ion-img class="logo" src="../assets/imgs/logo_SISI_beta.png"></ion-img>
@@ -39,22 +38,10 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <div (click)="goToSignup()">
+        <div (click)="goToRegisterPage()">
           <span>Não possui uma conta? Cadastre-se agora.</span>
         </div>
       </ion-col>
     </ion-row>
-
-  <ion-content padding class="bg-image"> 
-  <img class="logo" src="assets/img/logo/logo-instagram.png" />
-  <div padding>
-    <ion-item>
-      <ion-input type="text" placeholder="E-mail"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="password" placeholder="Senha"></ion-input>
-    </ion-item>
-    <button ion-button block outline [navPush]="tabsPage" color="light" class="login-button">Entrar</button>
-
   </div>
 </ion-content>
