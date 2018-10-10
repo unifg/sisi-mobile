@@ -1,6 +1,7 @@
 import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
-import { AlertController, App, LoadingController, IonicPage } from 'ionic-angular';
+import { AlertController, App, LoadingController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RegisterPage } from '../register/register';
 
 /**
  * Generated class for the LoginPage page.
@@ -24,6 +25,8 @@ export class LoginPage {
   constructor(
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
     public app: App
   ) { }
 
@@ -45,8 +48,8 @@ export class LoginPage {
 
   }
 
-  goToSignup() {
-    // this.navCtrl.push(SignupPage);
+  goToRegisterPage() {
+    this.navCtrl.push(RegisterPage);
   }
 
   goToResetPassword() {
