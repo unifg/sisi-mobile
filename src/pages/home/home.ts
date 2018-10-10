@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation'
+import { LoginPage } from '../login/login';
 
 declare var google: any;
 
@@ -40,5 +41,8 @@ export class HomePage {
     }).catch( err => console.log(err));
     
   }
+  logOut(){
+    this.navCtrl.setRoot(LoginPage)
+ }
 
 }
