@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div #menu id="menu" text-center>
+      
+  <!-- Float the icon left -->
+<button ion-button icon-start>
+  <ion-icon name="md-list-box"></ion-icon>
+  Feed
+</button>
+
+    <!-- Float the icon left -->
+<button ion-button icon-start (click)="goToProfilePage()">
+  <ion-icon name="contact"></ion-icon>
+  Perfil
+</button>
+
+
+    <!-- Float the icon left -->
+    <button ion-button icon-start (click)="logOut()">
+        <ion-icon name="ios-log-in-outline"></ion-icon>
+        Sair
+      </button>
+
+</div>
+<p></p>
+  
+<div #map id="map"></div>
+<p></p>
+<div #menu id="menu" text-center>
+      
+    <!-- Float the icon left -->
+  <button ion-button icon-start>
+    <ion-icon name="md-add-circle"></ion-icon>
+    Ocorrência
+  </button>
+  
+      <!-- Float the icon left -->
+  <button ion-button icon-start>
+    <ion-icon name="md-add-circle"></ion-icon>
+    Reclamação
+  </button>
+  
+  </div>
+</ion-content>
