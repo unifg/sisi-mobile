@@ -8,11 +8,12 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { LoginPage }    from '../pages/login/login';
+import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { RegisterPerfilPageModule } from '../pages/registerPerfil/registerPerfil.module';
-import { RegisterPageModule } from '../pages/register/register.module';
+import { RegisterPerfilPage } from '../pages/registerPerfil/registerPerfil';
+import { RegisterPage } from '../pages/register/register';
+import { FeedPage } from '../pages/feed/feed';
 
 
 
@@ -24,14 +25,14 @@ import { RegisterPageModule } from '../pages/register/register.module';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    RegisterPerfilPage,
+    RegisterPage,
+    FeedPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    RegisterPerfilPageModule,
-    RegisterPageModule
-
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,13 +41,15 @@ import { RegisterPageModule } from '../pages/register/register.module';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
-
+    LoginPage,
+    RegisterPerfilPage,
+    RegisterPage,
+    FeedPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }

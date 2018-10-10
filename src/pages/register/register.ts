@@ -10,16 +10,22 @@ import { LoginPage } from '../login/login';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,) {
+  user = {
+    name: '',
+    cpf: null,
+    email: '',
+    password: ''
+  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, ) {
 
   }
-goToRegisterPerfilPage(){
-  this.navCtrl.push(RegisterPerfilPage)
-}
+  goToRegisterPerfilPage() {
+    // this.navCtrl.push(RegisterPerfilPage)
+    console.log(this.user)
+  }
 
-goToLoginPage(){
-  this.navCtrl.push(LoginPage)
-}
+  goToLoginPage() {
+    this.navCtrl.push(LoginPage)
+  }
 
 }
