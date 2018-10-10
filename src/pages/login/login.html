@@ -1,28 +1,47 @@
 <ion-content padding class="transparent-header">
   <ion-header>
-    <ion-navbar>
+    <ion-navbar padding class="toolbar-background" color="dark">
+      <ion-title>Login</ion-title>
     </ion-navbar>
   </ion-header>
-  <img class="logo" src="assets/img/logo/logo-instagram.png" />
-  <div padding>
-    <ion-item>
-      <ion-input type="text" placeholder="E-mail"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="password" placeholder="Senha"></ion-input>
-    </ion-item>
-    <button ion-button block outline [navPush]="tabsPage" color="light" class="login-button">Entrar</button>
+  <div padding style="padding-top: 35%;">
+    <ion-row>
+        <ion-img class="logo" src="../assets/imgs/logo_SISI_beta.png"></ion-img>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list inset class="no-border">
+          <ion-item>
+            <ion-input type="email" placeholder="E-mail"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" placeholder="Senha"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row style="padding-bottom: 15px">
+      <ion-col>
+        <button ion-button class="login-button" (click)="login()" color="dark">Login</button>
+        <div class="strike" style="padding: 15px 15px">
+          <span>Ou</span>
+        </div>
+        <button ion-button block clear (click)="login()" color="light" style="background-color: #3B5998">
+          <ion-icon name="logo-facebook" style="padding: 15px 15px">
+          </ion-icon> Entrar com Facebook
+        </button>
+        <button ion-button block clear (click)="login()" color="light" style="background-color: #D84B37">
+          <ion-icon name="logo-google" style="padding: 25px 20px">
+          </ion-icon> Entrar com Google
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div (click)="goToSignup()">
+          <span>Não possui uma conta? Cadastre-se agora.</span>
+        </div>
+      </ion-col>
+    </ion-row>
   </div>
-  <div class="strike">
-    <span>OU</span>
-  </div>
-  <button ion-button block clear (click)="login()" color="light" class="login-button"><ion-icon name="logo-facebook"></ion-icon> Entrar com Facebook</button>
-  <button ion-button block clear (click)="login()" color="light" class="login-button"><ion-icon name="logo-google"></ion-icon> Entrar com Google</button>
 </ion-content>
-<ion-footer>
-  <ion-toolbar class="footer">
-    <div (click)="goToSignup()">
-      <span>Não possui uma conta? <strong>Cadastre aqui</strong>.</span>
-    </div>
-  </ion-toolbar>
-</ion-footer>
