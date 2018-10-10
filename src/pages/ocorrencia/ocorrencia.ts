@@ -1,10 +1,14 @@
-import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
+<<<<<<< HEAD:src/pages/ocorrencia/ocorrencia.ts
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FeedPage } from '../feed/feed';
+=======
 import { AlertController, App, LoadingController, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
+>>>>>>> 0aa5741d00c42c8475eab4b7bf2f0ca577718d29:src/pages/login/login.ts
 
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the OcorrenciaPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,15 +16,19 @@ import { RegisterPage } from '../register/register';
 
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-ocorrencia',
+  templateUrl: 'ocorrencia.html',
 })
+<<<<<<< HEAD:src/pages/ocorrencia/ocorrencia.ts
+export class OcorrenciaPage {
+=======
 export class LoginPage {
 
   public loginForm: any;
   public backgroundImage = '../assets/img/background/globalbackground.jpg';
 
   tabsPage = TabsPage;
+>>>>>>> 0aa5741d00c42c8475eab4b7bf2f0ca577718d29:src/pages/login/login.ts
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -52,8 +60,21 @@ export class LoginPage {
     this.navCtrl.push(RegisterPage);
   }
 
-  goToResetPassword() {
-    // this.navCtrl.push(ResetPasswordPage);
+<<<<<<< HEAD:src/pages/ocorrencia/ocorrencia.ts
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad OcorrenciaPage');
   }
 
+  public goToFeed() {
+    this.navCtrl.pop()
+=======
+  goToResetPassword() {
+    // this.navCtrl.push(ResetPasswordPage);
+>>>>>>> 0aa5741d00c42c8475eab4b7bf2f0ca577718d29:src/pages/login/login.ts
+  }
+
+
+  public confirmar() {
+    alert("Dados Enviados!")
+  }
 }
