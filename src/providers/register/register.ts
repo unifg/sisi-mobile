@@ -11,15 +11,15 @@ export class RegisterProvider {
   registerUser(usuario) {
     let headers = new HttpHeaders()
     headers.set("Accept", 'application/json')
-    headers.set('Content-Type', 'application/json' )
+    headers.set('Content-Type', 'application/json')
     // const requestOptions = new HttpParams()
 
-    this.http.post(`${this.sisi_api}/users`, usuario, {"headers": headers})
-    .subscribe(data => {
-      console.log(data['_body']);
-    }, error => {
-      console.log(error);
-    })
+    this.http.post(`${this.sisi_api}/users`, usuario, { "headers": headers })
+      .subscribe(data => {
+        console.log(data);
+      }, error => {
+        console.log(error);
+      })
   }
 
 }
