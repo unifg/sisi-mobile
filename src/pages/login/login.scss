@@ -1,0 +1,98 @@
+page-login {
+  $transparent-white: rgba(255, 255, 255, .6);
+    // Fullscreen centered image background
+    ion-content {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-color: transparent;
+    }
+
+    .scroll-content {
+      background-image: radial-gradient(center center, ellipse cover, #ffeda3, #ffc800);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .logo {
+      width: 100%;
+      height: auto;
+      max-width: 16em;
+      margin: 0 auto;
+      padding-bottom: 115px;
+      padding-top: 0px;
+      background-color: white;
+    }
+    .no-border {
+      border-bottom: 0 !important;
+      box-shadow: none !important;
+    }
+    ion-row {
+      align-items: center;
+      text-align: center;
+    }
+    @media only screen and (min-width: 768px) {
+      ion-col.col {
+        margin: 0 auto;
+        max-width: 40%;
+      }
+    }
+
+    ion-item {
+      // border-radius: 30px !important;
+      padding-left: 10px !important;
+      margin-bottom: 10px;
+      background-color: #f6f6f6;
+      opacity: 0.7;
+      font-size: 0.9em;
+    }
+    ion-list {
+      margin: 0;
+    }
+    .login-button {
+      width: 100%;
+      // border-radius: 30px;
+      font-size: 0.9em;
+      // border: 1px solid #fff;
+      background-color: #990000;
+      padding-button: 20px;
+    }
+    .strike {
+      display: block;
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .strike>span {
+      position: relative;
+      display: inline-block;
+      font-weight: bold;
+      font-color: black;
+    }
+    .strike>span:before,
+    .strike>span:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 9999px;
+      height: 1px;
+      background: black;
+    }
+    .strike>span:before {
+      right: 100%;
+      margin-right: 15px;
+    }
+    .strike>span:after {
+      left: 100%;
+      margin-left: 15px;
+    }
+    ion-input {
+    border-radius: 3px !important;
+    padding-left: 10px !important;
+    margin-bottom: 15px !important;
+    margin-bottom: 10px;
+    color: #000000 !important;
+    background-color: rgba(255, 255, 255, .2) !important;
+    font-size: 0.9em;
+    }
+}
