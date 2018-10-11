@@ -5,6 +5,7 @@ import { HomePage } from '../home/home';
 import { FeedPage } from '../feed/feed';
 import { OcorrenciaPage } from '../ocorrencia/ocorrencia';
 import { RegisterPage } from '../register/register';
+import { LoginPage } from '../login/login';
 import { RegisterPerfilPage } from '../registerPerfil/registerPerfil';
 
 @Component({
@@ -19,6 +20,7 @@ export class TabsPage {
   tab5Root = OcorrenciaPage;
   tab6Root = RegisterPage;
   tab7Root = RegisterPerfilPage
+  tab8Root = LoginPage
 
 
 
