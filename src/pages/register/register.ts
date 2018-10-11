@@ -47,7 +47,6 @@ export class RegisterPage {
       status: this.userForm.controls.status.value,
       skin_color: this.userForm.controls.skin_color.value
     }
-    console.log(user)
     this.registerProvider.registerUser(user)
     // this.navCtrl.push(RegisterPerfilPage)
     this.presentToast()
