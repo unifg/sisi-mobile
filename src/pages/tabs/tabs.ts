@@ -15,10 +15,10 @@ export class TabsPage {
   tab1Root = HomePage;
   tab2Root = AboutPage;
   tab3Root = ContactPage;
-  tab4Root = FeedPage;
-  tab5Root = OcorrenciaPage;
   tab4Root = RegisterPage;
-  tab5Root = RegisterPerfilPage
+  tab5Root = RegisterPerfilPage;
+  tab6Root = FeedPage;
+  tab7Root = OcorrenciaPage;
 
 
 
