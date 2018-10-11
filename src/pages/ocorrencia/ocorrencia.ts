@@ -1,10 +1,9 @@
-import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
-import { AlertController, App, LoadingController, IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RegisterPage } from '../register/register';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, App } from 'ionic-angular';
+import { FeedPage } from '../feed/feed';
 
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the OcorrenciaPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,15 +11,10 @@ import { RegisterPage } from '../register/register';
 
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-ocorrencia',
+  templateUrl: 'ocorrencia.html',
 })
-export class LoginPage {
-
-  public loginForm: any;
-  public backgroundImage = '../assets/img/background/globalbackground.jpg';
-
-  tabsPage = TabsPage;
+export class OcorrenciaPage {
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -48,12 +42,17 @@ export class LoginPage {
 
   }
 
-  goToRegisterPage() {
-    this.navCtrl.push(RegisterPage);
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad OcorrenciaPage');
   }
 
-  goToResetPassword() {
-    // this.navCtrl.push(ResetPasswordPage);
+  public goToFeed() {
+    this.navCtrl.pop()
   }
 
+
+  public confirmar() {
+    alert("Dados Enviados!")
+  }
 }
