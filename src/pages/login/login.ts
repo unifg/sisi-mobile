@@ -41,7 +41,7 @@ export class LoginPage {
 
 
 
-  getLogin() {
+  login() {
     //   const loading = this.loadingCtrl.create({
     //     duration: 500
     //   });
