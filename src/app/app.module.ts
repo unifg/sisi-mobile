@@ -16,7 +16,7 @@ import { RegisterPerfilPage } from '../pages/registerPerfil/registerPerfil';
 import { RegisterPage } from '../pages/register/register';
 import { FeedPage } from '../pages/feed/feed';
 import { RegisterProvider } from '../providers/register/register';
-import { ValidatorsModule } from '../validators/validators.module';
+import { AuthProvider } from '../providers/auth/auth';
 
 
 
@@ -54,7 +54,8 @@ import { ValidatorsModule } from '../validators/validators.module';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    RegisterProvider
+    RegisterProvider,
+    AuthProvider
   ]
 })
 export class AppModule { }

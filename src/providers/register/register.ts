@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class RegisterProvider {
-  sisi_api = 'http://104.131.99.239:5050/api/mobile'
+
   constructor(public http: HttpClient) {
 
   }
@@ -14,7 +14,7 @@ export class RegisterProvider {
     headers.set('Content-Type', 'application/json')
     // const requestOptions = new HttpParams()
 
-    this.http.post(`${this.sisi_api}/users`, usuario, { "headers": headers })
+    this.http.post('http://104.131.99.239:5050/api/mobile/users', usuario, { "headers": headers })
       .subscribe(data => {
         console.log(data);
       }, error => {

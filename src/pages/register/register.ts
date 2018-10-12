@@ -29,6 +29,7 @@ export class RegisterPage {
       birthdate: ['', Validators.required],
       gender: ['', Validators.required],
       cellphone: ['', Validators.required],
+      phone: ['', Validators.required],
       status: ['ATIVO', Validators.required],
       skin_color: ['', Validators.required],
       confirmPassword: ['', Validators.required]
@@ -44,6 +45,7 @@ export class RegisterPage {
       birthdate: this.userForm.controls.birthdate.value,
       gender: this.userForm.controls.gender.value,
       cellphone: this.userForm.controls.cellphone.value,
+      phone: this.userForm.controls.phone.value,
       status: this.userForm.controls.status.value,
       skin_color: this.userForm.controls.skin_color.value
     }

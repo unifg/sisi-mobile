@@ -70,9 +70,16 @@
     <p></p>
     <ion-item>
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="number" [(ngModel)]="cellphone" formControlName="cellphone" placeholder="Telefone/Celular"></ion-input>
+      <ion-input type="number" [(ngModel)]="cellphone" formControlName="cellphone" placeholder="Celular"></ion-input>
     </ion-item>
     <span padding *ngIf="!userForm.controls.cellphone.valid && (!userForm.controls.cellphone.untouched || userForm.controls.cellphone.dirty)"
+      class="error">Este campo é obrigatório</span>
+    <p></p>
+    <ion-item>
+      <ion-label color="primary" stacked></ion-label>
+      <ion-input type="number" [(ngModel)]="phone" formControlName="phone" placeholder="Telefone"></ion-input>
+    </ion-item>
+    <span padding *ngIf="!userForm.controls.phone.valid && (!userForm.controls.phone.untouched || userForm.controls.phone.dirty)"
       class="error">Este campo é obrigatório</span>
     <p></p>
     <ion-item>
