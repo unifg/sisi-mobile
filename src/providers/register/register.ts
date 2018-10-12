@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RegisterProvider {
   sisi_api = 'http://104.131.99.239:5050/api/mobile'
+
   constructor(public http: HttpClient) {
 
   }
