@@ -32,7 +32,7 @@
     </form>
     <ion-row style="padding-bottom: 15px">
       <ion-col>
-        <button ion-button class="login-button" (click)="login()" color="dark">Login</button>
+        <button ion-button class="login-button" (click)="authUser()" color="dark">Login</button>
         <div class="strike" style="padding: 15px 15px">
           <span>Ou</span>
         </div>
@@ -48,7 +48,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <div (click)="goToRegisterPage()">
+        <div style="padding-bottom: 20px" (click)="goToRegisterPage()">
           <span>Não possui uma conta? Cadastre-se agora.</span>
         </div>
       </ion-col>
