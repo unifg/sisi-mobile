@@ -60,7 +60,6 @@ export class RegisterPage {
   }
 
   addUsuario(){
-    console.log('entrou');
     let user = {
       name:       this.userForm.controls.name.value,
       cpf:        this.userForm.controls.cpf.value,
@@ -74,8 +73,6 @@ export class RegisterPage {
       skin_color: this.userForm.controls.skin_color.value
     }
     this.userProvider.addUsuario(user).subscribe(res =>{
-      console.log(this.user);
-      console.log(res);
       this.registerProvider.registerUser(user);
       this.presentToast();
       this.navCtrl.pop();
