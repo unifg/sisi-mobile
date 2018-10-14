@@ -21,13 +21,13 @@ export class UserProvider {
     }
 
 
-  addUsuario(data:IUser) {
+  addUser(data:IUser) {
     return this.http.post<IUser>(this.url + 'api/mobile/users', data)
-      }
+  }
 
-  loginUsuario(data:IUser) {
-    return this.http.get<IUser>(this.url + 'api/user/authenticated',)
-      }
+  getUser(){
+    
+  }
 
   }
 

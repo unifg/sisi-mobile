@@ -15,14 +15,14 @@ import { IUser } from '../../interfaces/IUser'
 })
 export class LoginPage {
 
-  user:IUser = {email:'',password:''};
+  user:IUser = {email:'', password:''};
 
   public userForm: any
   public loginForm: any;
   public backgroundImage = '../assets/img/background/globalbackground.jpg';
   tabsPage = TabsPage;
 
-   constructor(
+  constructor(
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
     public navCtrl: NavController,
@@ -32,31 +32,40 @@ export class LoginPage {
     private toastCtrl: ToastController,
     public authProvider: AuthProvider,
     public userProvider: UserProvider
-
-
-  ) {
-
+  ){
     this.userForm = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required],
     });
   }
 
-  presentToast() {
-    let toast = this.toastCtrl.create({
-      message: 'Usuário Logado',
-      duration: 3000,
-      position: 'bottom'
-    });
-  }
+  login() {
 
-  authUser() {
-    this.authProvider.authUser(this.userForm.controls.email.value, this.userForm.controls.password.value).subscribe(res =>{
-      console.log(this.user);
-      this.presentToast();
-      }, erro => {
-      console.log("Erro" + erro.message);
+    let loading = this.loadingCtrl.create({
+      content: 'Aguarde, por favor...'
     });
+
+    const toast = this.toastCtrl.create({
+      message: 'Não foi possível realizar o login, verifique os dados informados!',
+      position: 'bottom',
+      duration: 5000
+    });
+
+    let email    = this.userForm.controls.email.value;
+    let password = this.userForm.controls.password.value;
+
+    loading.present();
+
+    this.authProvider.login(email, password).subscribe(
+      res => {
+        loading.dismissAll();
+        this.authProvider.setToken(res);
+        this.navCtrl.setRoot(TabsPage);
+      }, erro => {
+        console.log("Erro" + erro.message);
+        loading.dismissAll();
+        toast.present();
+      });
   }
 
   goToRegisterPage() {
