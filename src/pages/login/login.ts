@@ -5,7 +5,7 @@ import { AlertController, App, LoadingController, IonicPage, NavController, NavP
 import { ToastController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { AuthProvider } from '../../providers/auth/auth';
-import { UserProvider } from '../../providers/user/user'
+import { UserProvider } from '../../providers/user/user';
 import { IUser } from '../../interfaces/IUser'
 
 @IonicPage()

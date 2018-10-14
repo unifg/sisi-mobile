@@ -1,7 +1,7 @@
 import { IUser } from './../../interfaces/IUser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Token } from '@angular/compiler';
+import { Token } from '@angular/compiler'
 
 /*
   Generated class for the AuthProvider provider.
