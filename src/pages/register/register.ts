@@ -56,10 +56,10 @@ export class RegisterPage {
   }
 
   goToLoginPage() {
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.pop();
   }
 
-  addUsuario(){
+  addUser(){
     let user = {
       name:       this.userForm.controls.name.value,
       cpf:        this.userForm.controls.cpf.value,
@@ -72,7 +72,7 @@ export class RegisterPage {
       status:     this.userForm.controls.status.value,
       skin_color: this.userForm.controls.skin_color.value
     }
-    this.userProvider.addUsuario(user).subscribe(res =>{
+    this.userProvider.addUser(user).subscribe(res =>{
       this.registerProvider.registerUser(user);
       this.presentToast();
       this.navCtrl.pop();
