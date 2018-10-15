@@ -30,7 +30,7 @@
     <p></p>
     <ion-item>
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="password" [(ngModel)]="password" formControlName="password" placeholder="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="password" formControlName="password" placeholder="Senha"></ion-input>
     </ion-item>
     <span padding *ngIf="!userForm.controls.password.valid && (!userForm.controls.password.untouched || userForm.controls.password.dirty)"
       class="error">Este campo é obrigatório</span>
@@ -48,7 +48,7 @@
         <ion-option value="FEMININO">Feminino</ion-option>
         <ion-option value="MASCULINO">Masculino</ion-option>
         <ion-option value="TRANS_FEM">Trans-Feminino</ion-option>
-        <ion-option value="TRANS_MASC">Tras-Masculino</ion-option>
+        <ion-option value="TRANS_MASC">Trans-Masculino</ion-option>
         <ion-option value="NAO_DECLARADO">Não informado</ion-option>
       </ion-select>
     </ion-item>
@@ -70,9 +70,16 @@
     <p></p>
     <ion-item>
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="number" [(ngModel)]="cellphone" formControlName="cellphone" placeholder="Telefone/Celular"></ion-input>
+      <ion-input type="number" [(ngModel)]="cellphone" formControlName="cellphone" placeholder="Celular"></ion-input>
     </ion-item>
     <span padding *ngIf="!userForm.controls.cellphone.valid && (!userForm.controls.cellphone.untouched || userForm.controls.cellphone.dirty)"
+      class="error">Este campo é obrigatório</span>
+    <p></p>
+    <ion-item>
+      <ion-label color="primary" stacked></ion-label>
+      <ion-input type="number" [(ngModel)]="phone" formControlName="phone" placeholder="Telefone"></ion-input>
+    </ion-item>
+    <span padding *ngIf="!userForm.controls.phone.valid && (!userForm.controls.phone.untouched || userForm.controls.phone.dirty)"
       class="error">Este campo é obrigatório</span>
     <p></p>
     <ion-item>
@@ -83,6 +90,6 @@
       class="error">Este campo é obrigatório</span>
     <p></p>
     <button ion-button style="background-color:#990000;" (click)="goToLoginPage()">Cancelar</button>
-    <button ion-button style="background-color:#990000;" [disabled]="!userForm.valid" (click)="goToRegisterPerfilPage()">Próximo</button>
+    <button ion-button style="background-color:#990000;" [disabled]="!userForm.valid" (click)="addUser()">Cadastrar</button>
   </form>
 </ion-content>

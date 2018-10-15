@@ -1,25 +1,35 @@
 <ion-content padding class="transparent-header">
   <ion-header>
     <ion-navbar padding class="toolbar-background" color="dark">
-      <ion-title>Login</ion-title>
+      <ion-title>LOGIN</ion-title>
     </ion-navbar>
   </ion-header>
   <div padding style="padding-top: 35%;">
     <ion-row>
-        <ion-img class="logo" src="../assets/imgs/logo_SISI_beta.png"></ion-img>
+      <ion-img class="logo" src="../assets/imgs/logo_SISI_beta.png"></ion-img>
     </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-list inset class="no-border">
-          <ion-item>
-            <ion-input type="email" placeholder="E-mail"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input type="password" placeholder="Senha"></ion-input>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-    </ion-row>
+    <form [formGroup]="userForm" novalidate>
+      <ion-row>
+        <ion-col>
+          <ion-list inset class="no-border">
+
+            <ion-item>
+              <ion-label color="primary" stacked></ion-label>
+              <ion-input type="email" [(ngModel)]="email" formControlName="email" placeholder="Email"></ion-input>
+            </ion-item>
+            <span padding *ngIf="!userForm.controls.email.valid && (!userForm.controls.email.untouched || userForm.controls.email.dirty)"
+              class="error">Email ou Senha estão incorretos</span>
+            <p></p>
+            <ion-item>
+              <ion-label color="primary" stacked></ion-label>
+              <ion-input type="password" [(ngModel)]="password" formControlName="password" placeholder="password"></ion-input>
+            </ion-item>
+            <span padding *ngIf="!userForm.controls.password.valid && (!userForm.controls.password.untouched || userForm.controls.password.dirty)"
+              class="error">Email ou Senha estão incorretos</span>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </form>
     <ion-row style="padding-bottom: 15px">
       <ion-col>
         <button ion-button class="login-button" (click)="login()" color="dark">Login</button>
@@ -38,7 +48,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <div (click)="goToRegisterPage()">
+        <div style="padding-bottom: 20px" (click)="goToRegisterPage()">
           <span>Não possui uma conta? Cadastre-se agora.</span>
         </div>
       </ion-col>
