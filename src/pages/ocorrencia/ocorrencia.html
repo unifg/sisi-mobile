@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>Descrição das Ocorrências</ion-title>
   </ion-navbar>
 
@@ -18,12 +18,12 @@
 
   <ion-item>
     <ion-label color="primary" stacked>Breve Descrição do Ocorrido: </ion-label>
-    <ion-input type="text" maxlength=120 placeholder="Até 120 caracteres"></ion-input>
+    <ion-input type="title" maxlength="120" placeholder="Até 120 caracteres"></ion-input>
   </ion-item>
   <br>
   <ion-item>
     <ion-label color="primary" stacked>Relatar o máximo de informação possivel: </ion-label>
-    <ion-input type="text" placeholder="Algumas informações como roupa, altura, cor de pele, quantas pessoas, qualquer informação que tiver para auxiliar."></ion-input>
+    <ion-input type="story" placeholder="Informar mais detalhes do ocorrido."></ion-input>
   </ion-item>
   <br>
   <ion-item>
@@ -37,10 +37,31 @@
   </ion-item>
 <br>
 
+<div *ngIf="id != 4">
+  <ion-item>
+    <ion-label color="primary" stacked>Objetos roubados</ion-label>
+    <ion-input type="text" placeholder="Quais objetos e/ou valor roubado"></ion-input>
+  </ion-item>
+  <br>
+</div>
+
 <ion-item>
-  <ion-label color="primary" stacked>Objetos roubados</ion-label>
-  <ion-input type="text" placeholder="Quais objetos e/ou valor roubado"></ion-input>
+  <ion-label>Zona</ion-label>
+  <ion-select [(ngModel)]="zone_id">
+    <ion-option value="1">Fox</ion-option>
+    <ion-option value="2">Zona 009</ion-option>
+    <ion-option value="3">Horse</ion-option>
+    <ion-option value="4">Dog</ion-option>
+    <ion-option value="5">Zona 002</ion-option>
+    <ion-option value="6">Cat</ion-option>
+    <ion-option value="7">Fish</ion-option>
+    <ion-option value="8">Zona 3421</ion-option>
+    <ion-option value="9">Outra</ion-option>
+
+
+  </ion-select>
 </ion-item>
+
 <br>
 <ion-list>
   <ion-label color="primary" stacked>Ja realizou o B.O</ion-label>

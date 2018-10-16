@@ -1,19 +1,31 @@
+
 import { NgModule, ErrorHandler } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule }          from '@angular/platform-browser';
+import { HttpClientModule }       from '@angular/common/http'
+import { IonicStorageModule }     from '@ionic/storage';
+import { MyApp }                  from './app.component';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
 
-import { AboutPage }    from '../pages/about/about';
-import { ContactPage }  from '../pages/contact/contact';
-import { HomePage }     from '../pages/home/home';
-import { TabsPage }     from '../pages/tabs/tabs';
+import { StatusBar }          from '@ionic-native/status-bar';
+import { SplashScreen }       from '@ionic-native/splash-screen';
 
-//import { LoginPage }    from '../pages/login/login';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { FeedPageModule } from '../pages/feed/feed.module';
-import { OcorrenciaPageModule } from '../pages/ocorrencia/ocorrencia.module';
-import { OcorrenciaPage } from '../pages/ocorrencia/ocorrencia';
+import { Geolocation } from '@ionic-native/geolocation';
+
+import { AboutPage }          from '../pages/about/about';
+import { ContactPage }        from '../pages/contact/contact';
+import { HomePage }           from '../pages/home/home';
+import { TabsPage }           from '../pages/tabs/tabs';
+
+import { LoginPage }          from '../pages/login/login';
+import { RegisterPerfilPage } from '../pages/registerPerfil/registerPerfil';
+import { RegisterPage }       from '../pages/register/register';
+import { FeedPage }           from '../pages/feed/feed';
+import { OcorrenciaPage } from './../pages/ocorrencia/ocorrencia';
+
+import { RegisterProvider }   from '../providers/register/register';
+import { AuthProvider }       from '../providers/auth/auth';
+import { UserProvider }       from '../providers/user/user';
+
 
 @NgModule({
   declarations: [
@@ -21,17 +33,18 @@ import { OcorrenciaPage } from '../pages/ocorrencia/ocorrencia';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
-    
-    
-    
+    TabsPage,
+    LoginPage,
+    RegisterPerfilPage,
+    RegisterPage,
+    FeedPage,
+    OcorrenciaPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    FeedPageModule,
-    OcorrenciaPageModule
-    
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,11 +53,20 @@ import { OcorrenciaPage } from '../pages/ocorrencia/ocorrencia';
     ContactPage,
     HomePage,
     TabsPage,
+    LoginPage,
+    RegisterPerfilPage,
+    RegisterPage,
+    FeedPage,
+    OcorrenciaPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Geolocation,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    RegisterProvider,
+    AuthProvider,
+    UserProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

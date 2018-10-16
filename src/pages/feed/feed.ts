@@ -15,21 +15,25 @@ import { AlertController } from 'ionic-angular';
 @Component({
   selector: 'page-feed',
   templateUrl: 'feed.html',
+
 })
 export class FeedPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FeedPage');
   }
 
-  public goToOcorrencia(){    
-    this.navCtrl.push(OcorrenciaPage)
+  public get id_ocorrences(){
+    return this.id_ocorrences;
+  }
+  public goToOcorrencia(id_ocorrences)
+  {
+        this.navCtrl.push(OcorrenciaPage,{"id_ocorrencia":id_ocorrences});
   }
 
 }
-  //let date = "03-11-2014";
-  //let newdate = date.split("-").reverse().join("-");
-

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, App } from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the OcorrenciaPage page.
@@ -16,20 +17,48 @@ import { FeedPage } from '../feed/feed';
 })
 export class OcorrenciaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public app: App
+  ) { }
 
-    
+  id;
+
+  ionViewWillLoad() {
+    this.id = this.navParams.get("id_ocorrencia");
+    console.log(this.id);
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OcorrenciaPage');
+  login() {
+    const loading = this.loadingCtrl.create({
+      duration: 500
+    });
+
+    loading.onDidDismiss(() => {
+      const alert = this.alertCtrl.create({
+        title: 'Logged in!',
+        subTitle: 'Thanks for logging in.',
+        buttons: ['Dismiss']
+      });
+      alert.present();
+    });
+
+    loading.present();
+
   }
 
-  public goToFeed(){
-    this.navCtrl.pop(FeedPage)
+
+  public goToFeed() {
+    this.navCtrl.pop()
   }
 
-  public confirmar(){
+
+  public confirmar() {
+    this.navCtrl.pop();
     alert("Dados Enviados!")
   }
 }
