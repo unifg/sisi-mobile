@@ -1,7 +1,7 @@
 
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule }          from '@angular/platform-browser';
-import { HttpClientModule }       from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS }  from '@angular/common/http';
 import { IonicStorageModule }     from '@ionic/storage';
 import { MyApp }                  from './app.component';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -25,6 +25,7 @@ import { OcorrenciaPage }     from '../pages/ocorrencia/ocorrencia';
 import { RegisterProvider }   from '../providers/register/register';
 import { AuthProvider }       from '../providers/auth/auth';
 import { UserProvider }       from '../providers/user/user';
+import {TokenInterceptor}     from "../providers/auth/token-interceptor";
 
 
 @NgModule({
@@ -61,6 +62,11 @@ import { UserProvider }       from '../providers/user/user';
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    // {
+    //     provide: HTTP_INTERCEPTORS,
+    //     useClass: TokenInterceptor,
+    //     multi: true
+    // },
     StatusBar,
     SplashScreen,
     Geolocation,

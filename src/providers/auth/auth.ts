@@ -1,13 +1,13 @@
 
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
-import { IUser } from './../../interfaces/IUser';
+import { IUser } from '../../interfaces/IUser';
 
 @Injectable()
 export class AuthProvider {
-  url: string = "http://104.131.99.239:5050/"
+  url: string = "http://104.131.99.239:5050/";
   headers:any;
 
   constructor(
@@ -22,7 +22,7 @@ export class AuthProvider {
     localStorage.setItem('token', token.access_token);
   }
 
-  getToken(){
+  getToken() {
     return this.storage.get("token");
   }
 

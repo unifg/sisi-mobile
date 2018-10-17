@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { FeedPage }    from '../feed/feed';
 import { TabsPage }    from '../tabs/tabs';
@@ -30,7 +30,7 @@ export class OcorrenciaPage {
         const coordinate = this.marker.getPosition();
         const lat = coordinate.lat();
         const lng = coordinate.lng();
-        result = `lat: ${lat.toFixed(3)}, lng: ${lng.toFixed(3)}`;
+        result = `lat: ${lat.toFixed(5)}, lng: ${lng.toFixed(5)}`;
     }
     return result;
   }
