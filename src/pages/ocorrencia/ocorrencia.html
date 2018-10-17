@@ -1,9 +1,3 @@
-<!--
-  Generated template for the OcorrenciaPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="dark">
@@ -14,10 +8,15 @@
 
 <ion-content padding>
 
-    <div #map id="map"></div>
+  <div #map id="map"></div>
   <ion-item>
     <ion-label color="primary" stacked>Breve Descrição do Ocorrido: </ion-label>
     <ion-input type="title" placeholder="Até 280 caracteres"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label color="primary" stacked>LAT, LOG</ion-label>
+    <ion-input type="text" [value]="getPosition()" ></ion-input>
   </ion-item>
   <br>
   <ion-item>
@@ -29,7 +28,7 @@
     <ion-label color="primary" stacked>Data</ion-label>
     <ion-input type="date" placeholder="Informar a data:"></ion-input>
   </ion-item>
-<br>
+  <br>
   <ion-item>
     <ion-label color="primary" stacked>Horário</ion-label>
     <ion-input type="time" placeholder="Horário do ocorrido"></ion-input>
@@ -52,6 +51,6 @@
 </ion-list>
 
 <button ion-button round (click)="goToFeed()">Cancelar</button>
-<button ion-button round (click)="confirmar()">Enviar</button>
+<button ion-button round (click)="registerOccurrence()">Enviar</button>
 
 </ion-content>

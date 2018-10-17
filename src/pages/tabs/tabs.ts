@@ -13,12 +13,12 @@ import { RegisterPerfilPage } from '../registerPerfil/registerPerfil';
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
-  tab4Root = FeedPage;
+  tab2Root = FeedPage;
   tab5Root = OcorrenciaPage;
-  tab4Root = RegisterPage;
-  tab5Root = RegisterPerfilPage
+  // tab2Root = AboutPage;
+  // tab3Root = ContactPage;
+  // tab4Root = RegisterPage;
+  // tab5Root = RegisterPerfilPage
 
 
 

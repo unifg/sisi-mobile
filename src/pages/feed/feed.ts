@@ -15,25 +15,22 @@ import { AlertController } from 'ionic-angular';
 @Component({
   selector: 'page-feed',
   templateUrl: 'feed.html',
-  
 })
 export class FeedPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FeedPage');
   }
 
-
-  public goToOcorrencia(ocorrences_type_id) {
+  goToOcorrencia() {
     this.navCtrl.push(OcorrenciaPage)
   }
 
- 
- 
+
+
   //let date = "03-11-2014";
   //let newdate = date.split("-").reverse().join("-");
 }

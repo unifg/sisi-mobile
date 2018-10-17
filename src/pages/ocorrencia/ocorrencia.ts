@@ -1,10 +1,10 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, App } from 'ionic-angular';
-import { FeedPage } from '../feed/feed';
 import { Geolocation } from '@ionic-native/geolocation';
-import { HomePage } from '../home/home';
+import { FeedPage }    from '../feed/feed';
+import { TabsPage }    from '../tabs/tabs';
 
-declare var google: any;
+declare let google: any;
 
 @IonicPage()
 @Component({
@@ -12,17 +12,28 @@ declare var google: any;
   templateUrl: 'ocorrencia.html',
 })
 export class OcorrenciaPage {
+
   @ViewChild('map') map: ElementRef;
+
+  private marker: any;
 
   constructor(
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
     public navCtrl: NavController,
     public navParams: NavParams,
-    public geolocation: Geolocation  ) {}
+    public geolocation: Geolocation) {}
 
-
-    
+  getPosition() {
+    let result = '';
+    if (this.marker) {
+        const coordinate = this.marker.getPosition();
+        const lat = coordinate.lat();
+        const lng = coordinate.lng();
+        result = `lat: ${lat.toFixed(3)}, lng: ${lng.toFixed(3)}`;
+    }
+    return result;
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OcorrenciaPage');
@@ -30,14 +41,15 @@ export class OcorrenciaPage {
       const position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 
       const options = {
-        
         center: position,
         zoom: 18,
         myTipyId: 'roadmap'
       };
 
       const map = new google.maps.Map(this.map.nativeElement, options);
-      var marker = new google.maps.Marker({
+      this.marker = new google.maps.Marker({
+        animation: google.maps.Animation.DROP,
+        draggable:true,
         position: position,
         map: map,
         title: 'Você está aqui!'
@@ -53,12 +65,8 @@ export class OcorrenciaPage {
     this.navCtrl.setRoot(FeedPage)
   }
 
-
-  public confirmar() {
-    alert("Dados Enviados!")
-    this.navCtrl.setRoot(HomePage)
+  registerOccurrence() {
+    this.navCtrl.setRoot(TabsPage);
   }
-
-  
   
 }
