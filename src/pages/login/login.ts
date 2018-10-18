@@ -1,13 +1,12 @@
 import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
-import { AlertController, App, LoadingController, IonicPage } from 'ionic-angular';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { FormBuilder, Validators } from '@angular/forms';
+import { AlertController, App, LoadingController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+import { RegisterPage } from '../register/register';
+import { AuthProvider } from '../../providers/auth/auth';
+import { UserProvider } from '../../providers/user/user';
+import { IUser } from '../../interfaces/IUser'
 
 @IonicPage()
 @Component({
@@ -16,41 +15,60 @@ import { AlertController, App, LoadingController, IonicPage } from 'ionic-angula
 })
 export class LoginPage {
 
+  user:IUser = {email:'', password:''};
+
+  public userForm: any
   public loginForm: any;
   public backgroundImage = '../assets/img/background/globalbackground.jpg';
-
   tabsPage = TabsPage;
 
   constructor(
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
-    public app: App
-  ) { }
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public app: App,
+    private formBuilder: FormBuilder,
+    private toastCtrl: ToastController,
+    public authProvider: AuthProvider,
+    public userProvider: UserProvider
+  ){
+    this.userForm = this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.required],
+    });
+  }
 
   login() {
-    const loading = this.loadingCtrl.create({
-      duration: 500
+
+    let loading = this.loadingCtrl.create({
+      content: 'Aguarde, por favor...'
     });
 
-    loading.onDidDismiss(() => {
-      const alert = this.alertCtrl.create({
-        title: 'Logged in!',
-        subTitle: 'Thanks for logging in.',
-        buttons: ['Dismiss']
-      });
-      alert.present();
+    const toast = this.toastCtrl.create({
+      message: 'Não foi possível realizar o login, verifique os dados informados!',
+      position: 'bottom',
+      duration: 5000
     });
+
+    let email    = this.userForm.controls.email.value;
+    let password = this.userForm.controls.password.value;
 
     loading.present();
 
+    this.authProvider.login(email, password).subscribe(
+      res => {
+        loading.dismissAll();
+        this.authProvider.setToken(res);
+        this.navCtrl.setRoot(TabsPage);
+      }, erro => {
+        console.log("Erro" + erro.message);
+        loading.dismissAll();
+        toast.present();
+      });
   }
 
-  goToSignup() {
-    // this.navCtrl.push(SignupPage);
+  goToRegisterPage() {
+    this.navCtrl.push(RegisterPage);
   }
-
-  goToResetPassword() {
-    // this.navCtrl.push(ResetPasswordPage);
-  }
-
 }

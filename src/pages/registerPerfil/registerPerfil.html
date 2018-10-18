@@ -6,7 +6,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding style="margin-top: 60px"> 
+<ion-content padding style="margin-top: 60px">
   <ion-item>
     <ion-label>Gênero</ion-label>
     <ion-select [(ngModel)]="Genero">
@@ -20,7 +20,7 @@
       <p></p>
       <ion-item>
         <ion-label>Cor</ion-label>
-        <ion-select [(ngModel)]="Genero">
+        <ion-select [(ngModel)]="Cor">
           <ion-option value="b">Branco</ion-option>
           <ion-option value="p1">Pardo</ion-option>
           <ion-option value="p2">Preto</ion-option>
@@ -31,7 +31,7 @@
           <p></p>
           <ion-item>
             <ion-label color="primary" stacked></ion-label>
-            <ion-input type="number" placeholder="Telefone/Celular"></ion-input>  
+            <ion-input type="number" placeholder="Telefone/Celular"></ion-input>
           </ion-item>
           <p></p>
           <ion-item>
@@ -40,5 +40,5 @@
             </ion-item>
             <p>
             <button ion-button style="background-color:#990000; margin-top: 45px"(click)="goToRegisterPage()">Voltar</button>
-            <button ion-button style="background-color:#990000; margin-top: 45px">Confirmar</button>
+            <button ion-button style="background-color:#990000; margin-top: 45px"(click)="goToLoginPage()">Confirmar</button>
 </ion-content>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
+import { LoginPage } from '../login/login';
+
 
 /**
  * Generated class for the Register2Page page.
@@ -21,6 +23,10 @@ export class RegisterPerfilPage {
   goToRegisterPage(){
     this.navCtrl.push(RegisterPage)
   }
-  
+
+  goToLoginPage(){
+    this.navCtrl.push(LoginPage)
+  }
+
 
 }
