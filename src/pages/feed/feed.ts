@@ -16,12 +16,12 @@ export class FeedPage {
     console.log('ionViewDidLoad FeedPage');
   }
 
-  goToOcorrencia() {
-    this.navCtrl.push(OcorrenciaPage)
+  goToOcorrencia(id) {
+    
+    if(id) {
+      this.navCtrl.push(OcorrenciaPage, {
+        occurrence_id: id
+      });
+    }
   }
-
-
-
-  //let date = "03-11-2014";
-  //let newdate = date.split("-").reverse().join("-");
 }

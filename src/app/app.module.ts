@@ -25,7 +25,8 @@ import { OcorrenciaPage }     from '../pages/ocorrencia/ocorrencia';
 import { RegisterProvider }   from '../providers/register/register';
 import { AuthProvider }       from '../providers/auth/auth';
 import { UserProvider }       from '../providers/user/user';
-import {TokenInterceptor}     from "../providers/auth/token-interceptor";
+import { TokenInterceptor }   from "../providers/auth/token-interceptor";
+import { OccurrenceProvider } from '../providers/occurrence/occurrence';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import {TokenInterceptor}     from "../providers/auth/token-interceptor";
     Geolocation,
     RegisterProvider,
     AuthProvider,
-    UserProvider
+    UserProvider,
+    OccurrenceProvider
   ]
 })
 export class AppModule { }

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController, AlertController
 import { Geolocation } from '@ionic-native/geolocation';
 import { FeedPage }    from '../feed/feed';
 import { TabsPage }    from '../tabs/tabs';
+import { OccurrenceProvider } from '../../providers/occurrence/occurrence';
 
 declare let google: any;
 
@@ -16,13 +17,18 @@ export class OcorrenciaPage {
   @ViewChild('map') map: ElementRef;
 
   private marker: any;
+  public occurrence_id: number;
+  private lat: number;
+  private lng: number;
 
   constructor(
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
     public navCtrl: NavController,
     public navParams: NavParams,
-    public geolocation: Geolocation) {}
+    public geolocation: Geolocation) {
+      this.occurrence_id = navParams.get('occurrence_id');
+    }
 
   getPosition() {
     let result = '';
@@ -30,9 +36,33 @@ export class OcorrenciaPage {
         const coordinate = this.marker.getPosition();
         const lat = coordinate.lat();
         const lng = coordinate.lng();
+
+        this.lat = lat;
+        this.lng = lng;
         result = `lat: ${lat.toFixed(5)}, lng: ${lng.toFixed(5)}`;
     }
     return result;
+  }
+
+  registerOccurrence() {
+    let user = {
+      title:                this.userForm.controls.name.value,
+      story:                this.userForm.controls.cpf.value,
+      occurrence_date:      this.userForm.controls.email.value,
+      occurrence_time:      this.userForm.controls.password.value,
+      coordinates:          this.userForm.controls.birthdate.value,
+      police_report:        this.userForm.controls.gender.value,
+      occurrence_type_id:   this.userForm.controls.cellphone.value,
+      zone_id:              this.userForm.controls.phone.value,
+    }
+    this.occurrence_provider.addUser(user).subscribe(res =>{
+      this.registerProvider.registerUser(user);
+      this.presentToast();
+      this.navCtrl.pop();
+    }, erro => {
+      console.log("Erro: " + erro.message);
+    });
+  }
   }
 
   ionViewDidLoad() {
