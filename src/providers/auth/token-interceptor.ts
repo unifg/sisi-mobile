@@ -4,6 +4,7 @@ import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, Http
 import {Observable} from 'rxjs';
 import { tap, retry } from 'rxjs/operators';
 import {AuthProvider} from "./auth";
+import {timer} from "rxjs/observable/timer";
 // import {HandlerErrorHelpers} from '../helpers/handler-error/handler-error.helper';
 
 @Injectable()
@@ -19,24 +20,27 @@ export class TokenInterceptor implements HttpInterceptor {
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        let token = '';
 
-
-        const token = new Observable( (observer) => {
-            this.auth.getToken().then( (token) => {
-                observer.next(token);
-            })
+        this.auth.getToken().then( ($token) => {
+            token = $token;
         });
 
 
-        token.subscribe( () => {
+        // token.subscribe( () => {
+        //
+        // });
 
-        });
 
         request = request.clone({
             setHeaders: {
                 Authorization: `Bearer ${token}`
             }
         });
+
+
+        console.log(request.headers);
+
 
         return next.handle(request).pipe(tap((event: HttpEvent<any>) => {
                 console.log('foi4');
@@ -45,6 +49,7 @@ export class TokenInterceptor implements HttpInterceptor {
                     // if (event.body.error) { this.handlerErrorHelper.handle(event); }
 
                 }
+
             },
             (error: any) => {
                 if (error instanceof HttpErrorResponse) {

@@ -1,102 +1,132 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
-import { FeedPage }    from '../feed/feed';
-import { TabsPage }    from '../tabs/tabs';
-import { OccurrenceProvider } from '../../providers/occurrence/occurrence';
+import {Component, ViewChild, ElementRef} from '@angular/core';
+import {IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController} from 'ionic-angular';
+import {Geolocation} from '@ionic-native/geolocation';
+import {FeedPage} from '../feed/feed';
+import {TabsPage} from '../tabs/tabs';
+import {OccurrenceProvider} from '../../providers/occurrence/occurrence';
+import {FormBuilder, Validators} from "@angular/forms";
 
 declare let google: any;
 
 @IonicPage()
 @Component({
-  selector: 'page-ocorrencia',
-  templateUrl: 'ocorrencia.html',
+    selector: 'page-ocorrencia',
+    templateUrl: 'ocorrencia.html',
 })
 export class OcorrenciaPage {
 
-  @ViewChild('map') map: ElementRef;
+    @ViewChild('map') map: ElementRef;
 
-  private marker: any;
-  public occurrence_id: number;
-  private lat: number;
-  private lng: number;
+    private marker: any;
+    private lat: number;
+    private lng: number;
+    public occurrence_id: number;
+    public occurrenceForm: any;
 
-  constructor(
-    public loadingCtrl: LoadingController,
-    public alertCtrl: AlertController,
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public geolocation: Geolocation) {
-      this.occurrence_id = navParams.get('occurrence_id');
+    constructor(
+        public loadingCtrl: LoadingController,
+        private toastCtrl: ToastController,
+        public alertCtrl: AlertController,
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public geolocation: Geolocation,
+        public occurrenceProvider: OccurrenceProvider,
+        private formBuilder: FormBuilder,
+
+    ) {
+
+        this.occurrence_id = navParams.get('occurrence_id');
+        this.occurrenceForm = this.formBuilder.group({
+            title: ['', Validators.compose([Validators.required, Validators.maxLength(250)])],
+            story: [null, Validators.required],
+            occurrence_date: ['', Validators.compose([Validators.required, Validators.email])],
+            occurrence_time: ['', Validators.required],
+        })
     }
 
-  getPosition() {
-    let result = '';
-    if (this.marker) {
-        const coordinate = this.marker.getPosition();
-        const lat = coordinate.lat();
-        const lng = coordinate.lng();
+    getPosition() {
+        let result = '';
+        if (this.marker) {
+            const coordinate = this.marker.getPosition();
+            const lat = coordinate.lat();
+            const lng = coordinate.lng();
 
-        this.lat = lat;
-        this.lng = lng;
-        result = `lat: ${lat.toFixed(5)}, lng: ${lng.toFixed(5)}`;
+            this.lat = lat;
+            this.lng = lng;
+            result = `lat: ${lat.toFixed(5)}, lng: ${lng.toFixed(5)}`;
+        }
+        return result;
     }
-    return result;
-  }
 
-  registerOccurrence() {
-    let user = {
-      title:                this.userForm.controls.name.value,
-      story:                this.userForm.controls.cpf.value,
-      occurrence_date:      this.userForm.controls.email.value,
-      occurrence_time:      this.userForm.controls.password.value,
-      coordinates:          this.userForm.controls.birthdate.value,
-      police_report:        this.userForm.controls.gender.value,
-      occurrence_type_id:   this.userForm.controls.cellphone.value,
-      zone_id:              this.userForm.controls.phone.value,
+    registerOccurrence() {
+        let loading = this.loadingCtrl.create({
+            content: 'Aguarde, por favor...'
+        });
+
+        const toast = this.toastCtrl.create({
+            message: 'Não foi possível registrar a ocorrência, verifique os dados informados!',
+            position: 'top',
+            duration: 5000
+        });
+
+        const success = this.toastCtrl.create({
+            message: 'Ocorrência cadastrada com sucesso!',
+            position: 'top',
+            duration: 5000
+        });
+
+        
+        let occurrence = {
+            title: this.occurrenceForm.controls.title.value,
+            story: this.occurrenceForm.controls.story.value,
+            occurrence_date: this.occurrenceForm.controls.occurrence_date.value,
+            occurrence_time: this.occurrenceForm.controls.occurrence_time.value,
+            coordinates: `${this.lat}, ${this.lng}`,
+            police_report: false,
+            occurrence_type_id: this.occurrence_id,
+            zone_id: 1,
+        };
+
+        loading.present();
+
+        this.occurrenceProvider.registerOccurrence(occurrence).subscribe(res => {
+            loading.dismissAll();
+            success.present();
+            this.navCtrl.setRoot(TabsPage);
+        }, error => {
+            console.log("Erro" + error.message);
+            loading.dismissAll();
+            toast.present();
+        });
     }
-    this.occurrence_provider.addUser(user).subscribe(res =>{
-      this.registerProvider.registerUser(user);
-      this.presentToast();
-      this.navCtrl.pop();
-    }, erro => {
-      console.log("Erro: " + erro.message);
-    });
-  }
-  }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OcorrenciaPage');
-    this.geolocation.getCurrentPosition().then( pos => {
-      const position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+    goToFeed() {
+        this.navCtrl.setRoot(FeedPage);
+    }
 
-      const options = {
-        center: position,
-        zoom: 18,
-        myTipyId: 'roadmap'
-      };
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad OcorrenciaPage');
+        this.geolocation.getCurrentPosition().then(pos => {
+            const position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 
-      const map = new google.maps.Map(this.map.nativeElement, options);
-      this.marker = new google.maps.Marker({
-        animation: google.maps.Animation.DROP,
-        draggable:true,
-        position: position,
-        map: map,
-        title: 'Você está aqui!'
-      });
+            const options = {
+                center: position,
+                zoom: 18,
+                myTipyId: 'roadmap'
+            };
+
+            const map = new google.maps.Map(this.map.nativeElement, options);
+            this.marker = new google.maps.Marker({
+                animation: google.maps.Animation.DROP,
+                draggable: true,
+                position: position,
+                map: map,
+                title: 'Você está aqui!'
+            });
 
 
-    }).catch( err => console.log(err));
-    
-  
-  }
+        }).catch(err => console.log(err));
 
-  goToFeed() {
-    this.navCtrl.setRoot(FeedPage)
-  }
+    }
 
-  registerOccurrence() {
-    this.navCtrl.setRoot(TabsPage);
-  }
-  
 }

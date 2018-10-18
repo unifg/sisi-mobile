@@ -1,8 +1,11 @@
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
-import * as _ from 'loadsh';
+import * as _ from 'lodash';
+import {Observable} from "rxjs/Observable";
+import {Injectable} from "@angular/core";
 
+@Injectable()
 export class HttpService {
 
     private token: string;
