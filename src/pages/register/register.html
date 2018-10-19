@@ -89,7 +89,7 @@
     <span padding *ngIf="!userForm.controls.birthdate.valid && (!userForm.controls.birthdate.untouched || userForm.controls.birthdate.dirty)"
       class="error">Este campo é obrigatório</span>
     <p></p>
-    <button ion-button style="background-color:#990000;" (click)="goToLoginPage()">Cancelar</button>
-    <button ion-button style="background-color:#990000;" [disabled]="!userForm.valid" (click)="addUser()">Cadastrar</button>
+    <button ion-button class="register-button" style="background-color:#990000;" (click)="goToLoginPage()">Cancelar</button>
+    <button ion-button class="register-button" style="background-color:#990000;" [disabled]="!userForm.valid" (click)="addUser()">Cadastrar</button>
   </form>
 </ion-content>

@@ -38,7 +38,7 @@ import { UserProvider }       from '../providers/user/user';
     RegisterPerfilPage,
     RegisterPage,
     FeedPage,
-    OcorrenciaPage
+    OcorrenciaPage,
   ],
   imports: [
     BrowserModule,
