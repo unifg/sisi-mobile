@@ -1,18 +1,31 @@
 page-login {
+    .bg-image {
+      background-image: url('../assets/img/background.png');
+       background-repeat: no-repeat;
+     
+      background-size: extends;
+    }
+  
   $transparent-white: rgba(255, 255, 255, .6);
     // Fullscreen centered image background
     ion-content {
-      background-size: cover;
-      background-position: center;
+      
+      width: 100%;
+      background-size: 100%;
+      
       background-repeat: no-repeat;
-      border-color: transparent;
-    }
 
+    }
     .scroll-content {
       background-image: radial-gradient(center center, ellipse cover, #ffeda3, #ffc800);
       display: flex;
       flex-direction: column;
       overflow: hidden;
+    }
+
+    .input-style {
+    
+
     }
     .logo {
       width: 100%;
@@ -21,7 +34,7 @@ page-login {
       margin: 0 auto;
       padding-bottom: 115px;
       padding-top: 0px;
-      background-color: white;
+      background-color: transparent;  
     }
     .no-border {
       border-bottom: 0 !important;
@@ -39,7 +52,6 @@ page-login {
     }
 
     ion-item {
-      // border-radius: 30px !important;
       padding-left: 10px !important;
       margin-bottom: 10px;
       background-color: #f6f6f6;
@@ -50,24 +62,46 @@ page-login {
       margin: 0;
     }
     .login-button {
-      width: 100%;
-      // border-radius: 30px;
+      width: 85%;
       font-size: 0.9em;
-      // border: 1px solid #fff;
+      border-radius: 20px;
       background-color: #990000;
       padding-button: 20px;
+      line-height: 16px;
+      
+      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1)
+      
+    }
+    .login-button-face {
+      width: 85%;
+      border-radius: 20px;
+      height: 30px;
+      font-size: 0.9em;
+      margin-left: 7%;
+      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+    }
+    .login-button-google {
+      width: 85%;
+      border-radius: 20px;
+      margin-left: 7%;
+      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+      height: 30px;
+    
+    }
+    .cor-cadastro {
+      color: darkcyan
     }
     .strike {
       display: block;
       text-align: center;
       overflow: hidden;
-      white-space: nowrap;
+      white-space: nowrap
     }
     .strike>span {
       position: relative;
       display: inline-block;
       font-weight: bold;
-      font-color: black;
+      font-color: black
     }
     .strike>span:before,
     .strike>span:after {
