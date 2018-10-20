@@ -1,7 +1,5 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserProvider } from '../../providers/user/user';
-import { IUser } from '../../interfaces/IUser';
 
 @Injectable()
 export class RegisterProvider {
