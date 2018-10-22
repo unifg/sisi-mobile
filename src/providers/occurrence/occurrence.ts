@@ -1,17 +1,16 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {HttpService} from "../../http-service/http.service";
 
-/*
-  Generated class for the OccurrenceProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class OccurrenceProvider {
+    url: string = 'http://104.131.99.239:5050/';
 
-  constructor(public http: HttpClient) {
-    console.log('Hello OccurrenceProvider Provider');
-  }
+    constructor(public http: HttpService) {
 
+    }
+
+    registerOccurrence(occurrence) {
+        return this.http.post(this.url + 'api/occurrence-reports', occurrence);
+    }
 }

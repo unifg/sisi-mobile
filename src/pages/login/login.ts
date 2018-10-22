@@ -24,12 +24,13 @@ export class LoginPage {
 
   constructor(
     public loadingCtrl: LoadingController,
+    private toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public navCtrl: NavController,
     public navParams: NavParams,
     public app: App,
     private formBuilder: FormBuilder,
-    private toastCtrl: ToastController,
+
     public authProvider: AuthProvider,
     public userProvider: UserProvider
   ){
@@ -61,8 +62,8 @@ export class LoginPage {
         loading.dismissAll();
         this.authProvider.setToken(res);
         this.navCtrl.setRoot(TabsPage);
-      }, erro => {
-        console.log("Erro" + erro.message);
+      }, error => {
+        console.log("Erro" + error.message);
         loading.dismissAll();
         toast.present();
       });

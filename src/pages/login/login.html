@@ -1,4 +1,4 @@
-<ion-content padding class="transparent-header">
+<ion-content  class= "bg-image no-scroll" padding>
   <ion-header>
     <ion-navbar padding class="toolbar-background" color="dark">
       <ion-title>LOGIN</ion-title>
@@ -6,25 +6,25 @@
   </ion-header>
   <div padding style="padding-top: 35%;">
     <ion-row>
-      <ion-img class="logo" src="../assets/imgs/logo_SISI_beta.png"></ion-img>
+      <ion-img class="logo" src="../assets/img/Logo.png"></ion-img>
     </ion-row>
     <form [formGroup]="userForm" novalidate>
       <ion-row>
         <ion-col>
-          <ion-list inset class="no-border">
+          <ion-list  inset class="no-border">
 
-            <ion-item>
+            <ion-item class="input">
               <ion-label color="primary" stacked></ion-label>
-              <ion-input type="email" [(ngModel)]="email" formControlName="email" placeholder="Email"></ion-input>
+              <ion-input class="input-style" type="email" [(ngModel)]="email" formControlName="email" placeholder="Email"></ion-input>
             </ion-item>
-            <span padding *ngIf="!userForm.controls.email.valid && (!userForm.controls.email.untouched || userForm.controls.email.dirty)"
+            <span padding *ngIf="!userForm.controls.email.valid && (!userForm.controls.email.pristine || userForm.controls.email.dirty)"
               class="error">Email ou Senha estão incorretos</span>
             <p></p>
-            <ion-item>
+            <ion-item class="input-style">
               <ion-label color="primary" stacked></ion-label>
-              <ion-input type="password" [(ngModel)]="password" formControlName="password" placeholder="password"></ion-input>
+              <ion-input  class="input-style" type="password" [(ngModel)]="password" formControlName="password" placeholder="Password"></ion-input>
             </ion-item>
-            <span padding *ngIf="!userForm.controls.password.valid && (!userForm.controls.password.untouched || userForm.controls.password.dirty)"
+            <span padding *ngIf="!userForm.controls.password.valid && (!userForm.controls.password.pristine || userForm.controls.password.dirty)"
               class="error">Email ou Senha estão incorretos</span>
           </ion-list>
         </ion-col>
@@ -36,11 +36,11 @@
         <div class="strike" style="padding: 15px 15px">
           <span>Ou</span>
         </div>
-        <button ion-button block clear (click)="login()" color="light" style="background-color: #3B5998">
+        <button ion-button block clear class="login-button-face" (click)="login()" color="light" style="background-color: #3B5998">
           <ion-icon name="logo-facebook" style="padding: 15px 15px">
           </ion-icon> Entrar com Facebook
         </button>
-        <button ion-button block clear (click)="login()" color="light" style="background-color: #D84B37">
+        <button ion-button block clear class="login-button-google" (click)="login()" color="light" style="background-color: #D84B37">
           <ion-icon name="logo-google" style="padding: 25px 20px">
           </ion-icon> Entrar com Google
         </button>
@@ -49,7 +49,7 @@
     <ion-row>
       <ion-col>
         <div style="padding-bottom: 20px" (click)="goToRegisterPage()">
-          <span>Não possui uma conta? Cadastre-se agora.</span>
+          <span>Não possui uma conta?</span><span class= cor-cadastro> Cadastre-se agora.</span>
         </div>
       </ion-col>
     </ion-row>
