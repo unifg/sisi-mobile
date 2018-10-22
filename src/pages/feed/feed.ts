@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component }                           from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { OcorrenciaPage } from '../ocorrencia/ocorrencia';
+import { OccurrencePage }                      from '../occurrence/occurrence';
 
 @IonicPage()
 @Component({
@@ -17,9 +17,9 @@ export class FeedPage {
   }
 
   goToOcorrencia(id) {
-    
+
     if(id) {
-      this.navCtrl.push(OcorrenciaPage, {
+      this.navCtrl.push(OccurrencePage, {
         occurrence_id: id
       });
     }

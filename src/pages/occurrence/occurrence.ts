@@ -10,10 +10,10 @@ declare let google: any;
 
 @IonicPage()
 @Component({
-    selector: 'page-ocorrencia',
-    templateUrl: 'ocorrencia.html',
+    selector: 'page-occurrence',
+    templateUrl: 'occurrence.html',
 })
-export class OcorrenciaPage {
+export class OccurrencePage {
 
     @ViewChild('map') map: ElementRef;
 
@@ -75,7 +75,7 @@ export class OcorrenciaPage {
             duration: 5000
         });
 
-        
+
         let occurrence = {
             title: this.occurrenceForm.controls.title.value,
             story: this.occurrenceForm.controls.story.value,

@@ -17,10 +17,9 @@ import { HomePage }           from '../pages/home/home';
 import { TabsPage }           from '../pages/tabs/tabs';
 
 import { LoginPage }          from '../pages/login/login';
-import { RegisterPerfilPage } from '../pages/registerPerfil/registerPerfil';
 import { RegisterPage }       from '../pages/register/register';
 import { FeedPage }           from '../pages/feed/feed';
-import { OcorrenciaPage }     from '../pages/ocorrencia/ocorrencia';
+import { OccurrencePage }     from '../pages/occurrence/occurrence';
 
 import { RegisterProvider }   from '../providers/register/register';
 import { AuthProvider }       from '../providers/auth/auth';
@@ -39,10 +38,9 @@ import { HttpService } from "../http-service/http.service";
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPerfilPage,
     RegisterPage,
     FeedPage,
-    OcorrenciaPage
+    OccurrencePage
   ],
   imports: [
     BrowserModule,
@@ -58,10 +56,9 @@ import { HttpService } from "../http-service/http.service";
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPerfilPage,
     RegisterPage,
     FeedPage,
-    OcorrenciaPage
+    OccurrencePage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

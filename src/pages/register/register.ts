@@ -4,8 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { RegisterProvider } from '../../providers/register/register';
 import { UserProvider } from '../../providers/user/user';
 import { ToastController } from 'ionic-angular';
-import { IUser } from '../../interfaces/IUser'
-import { RegisterPerfilPage } from '../registerPerfil/registerPerfil';
+import { IUser } from '../../interfaces/IUser';
 
 
 @IonicPage()

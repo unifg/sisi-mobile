@@ -1,10 +1,9 @@
-import {FeedPage} from './../feed/feed';
-
-import {Component, ViewChild, ElementRef} from '@angular/core';
-import {NavController} from 'ionic-angular';
-import {Geolocation} from '@ionic-native/geolocation'
-import {LoginPage} from '../login/login';
-import { AuthProvider } from "../../providers/auth/auth";
+import { FeedPage }                           from './../feed/feed';
+import { Component, ViewChild, ElementRef }   from '@angular/core';
+import { NavController }                      from 'ionic-angular';
+import { Geolocation }                        from '@ionic-native/geolocation'
+import { LoginPage }                          from '../login/login';
+import { AuthProvider }                       from "../../providers/auth/auth";
 
 declare let google: any;
 
