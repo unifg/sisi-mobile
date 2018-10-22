@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { OcorrenciaPage } from '../ocorrencia/ocorrencia';
-import { OcorrenciaPageModule } from '../ocorrencia/ocorrencia.module';
+import { OccurrencePage } from '../occurrence/occurrence';
+import { OccurrencePageModule } from '../occurrence/occurrence.module';
 import { AlertController } from 'ionic-angular';
 
 /**
@@ -28,7 +28,7 @@ export class FeedPage {
   }
 
   goToOcorrencia() {
-    this.navCtrl.push(OcorrenciaPage)
+    this.navCtrl.push(OccurrencePage)
   }
 
 

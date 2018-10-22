@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { FeedPage } from './../feed/feed';
 
 import { Component, ViewChild, ElementRef } from '@angular/core';
@@ -47,8 +48,8 @@ export class HomePage {
     this.navCtrl.setRoot(LoginPage)
  }
 
- goToFeedPage() {
-  this.navCtrl.push(FeedPage);
+  goToFeedPage() {
+    this.navCtrl.push(FeedPage);
  }
 }
 

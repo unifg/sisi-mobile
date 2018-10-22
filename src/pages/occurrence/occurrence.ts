@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, App } from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
+import { ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the OcorrenciaPage page.
@@ -12,16 +13,18 @@ import { FeedPage } from '../feed/feed';
 @IonicPage()
 @Component({
   selector: 'page-ocorrencia',
-  templateUrl: 'ocorrencia.html',
+  templateUrl: 'occurrence.html',
 })
-export class OcorrenciaPage {
+export class OccurrencePage {
 
   constructor(
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
     public navCtrl: NavController,
     public navParams: NavParams,
-    public app: App
+    public app: App,
+    private toastCtrl: ToastController
+
   ) { }
 
   login() {
@@ -47,12 +50,15 @@ export class OcorrenciaPage {
     console.log('ionViewDidLoad OcorrenciaPage');
   }
 
-  public goToFeed() {
+  goToFeed() {
     this.navCtrl.pop()
   }
 
 
-  public confirmar() {
-    alert("Dados Enviados!")
-  }
+  confirmar() {
+    const toast = this.toastCtrl.create({
+      message: 'Dados enviados',
+      position: 'bottom',
+      duration: 5000
+    });  }
 }

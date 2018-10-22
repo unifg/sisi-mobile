@@ -20,11 +20,12 @@ import { LoginPage }          from '../pages/login/login';
 import { RegisterPerfilPage } from '../pages/registerPerfil/registerPerfil';
 import { RegisterPage }       from '../pages/register/register';
 import { FeedPage }           from '../pages/feed/feed';
-import { OcorrenciaPage } from './../pages/ocorrencia/ocorrencia';
+import { OccurrencePage } from './../pages/occurrence/occurrence';
 
 import { RegisterProvider }   from '../providers/register/register';
 import { AuthProvider }       from '../providers/auth/auth';
 import { UserProvider }       from '../providers/user/user';
+import { OccurrenceProvider } from '../providers/occurrence/occurrence';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { UserProvider }       from '../providers/user/user';
     RegisterPerfilPage,
     RegisterPage,
     FeedPage,
-    OcorrenciaPage
+    OccurrencePage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,7 @@ import { UserProvider }       from '../providers/user/user';
     RegisterPerfilPage,
     RegisterPage,
     FeedPage,
-    OcorrenciaPage
+    OccurrencePage
   ],
   providers: [
     StatusBar,
@@ -66,7 +67,8 @@ import { UserProvider }       from '../providers/user/user';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     RegisterProvider,
     AuthProvider,
-    UserProvider
+    UserProvider,
+    OccurrenceProvider
   ]
 })
 export class AppModule { }
