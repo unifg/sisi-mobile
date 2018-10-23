@@ -58,10 +58,6 @@ export class RegisterPage {
     this.navCtrl.pop();
   }
 
-  goToRegisterPerfilPage(){
-    this.navCtrl.push(RegisterPerfilPage)
-  }
-
   addUser(){
     let user = {
       name:       this.userForm.controls.name.value,

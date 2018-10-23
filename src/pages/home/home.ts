@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { FeedPage }                           from './../feed/feed';
 import { Component, ViewChild, ElementRef }   from '@angular/core';
 import { NavController }                      from 'ionic-angular';
@@ -17,7 +18,7 @@ export class HomePage {
 
     private marker: google.maps.Marker;
 
-    constructor(public navCtrl: NavController, public geolocation: Geolocation, public authProvider: AuthProvider) {
+    constructor(public navCtrl: NavController, public geolocation: Geolocation, public authProvider: AuthProvider,  private storage: Storage) {
     }
 
     public getPosition() {
@@ -57,6 +58,7 @@ export class HomePage {
     }
 
     logOut() {
+        this.storage.remove('token');
         this.navCtrl.setRoot(LoginPage)
     }
 
