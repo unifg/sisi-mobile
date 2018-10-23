@@ -20,13 +20,10 @@ $transparent-white: rgba(255, 255, 255, .6);
     background-image: radial-gradient(center center, ellipse cover, #ffeda3, #ffc800);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
   }
 
-  .input-style {
-  
 
-  }
   .logo {
     width: 100%;
     height: auto;
