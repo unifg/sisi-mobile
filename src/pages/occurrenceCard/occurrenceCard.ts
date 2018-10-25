@@ -4,16 +4,16 @@ import { OccurrencePage }                      from '../occurrence/occurrence';
 
 @IonicPage()
 @Component({
-  selector: 'page-feed',
-  templateUrl: 'feed.html',
+  selector: 'page-occurrenceCard',
+  templateUrl: 'occurrenceCard.html',
 })
-export class FeedPage {
+export class OccurrenceCardPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FeedPage');
+    console.log('ionViewDidLoad OccurrenceCardPage');
   }
 
   goToOcorrencia(id) {
