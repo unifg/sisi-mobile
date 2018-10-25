@@ -1,4 +1,4 @@
-import { FeedPage }                         from './../feed/feed';
+import { OccurrenceCardPage }               from '../occurrenceCard/occurrenceCard';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController }                    from 'ionic-angular';
 import { Geolocation }                      from '@ionic-native/geolocation';
@@ -56,8 +56,8 @@ export class HomePage {
 
   }
 
-  goToFeedPage() {
-    this.navCtrl.push(FeedPage);
+  goToOccurrenceCardPage() {
+    this.navCtrl.push(OccurrenceCardPage);
   }
 }
 
