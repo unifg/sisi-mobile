@@ -1,21 +1,20 @@
 import {Injectable} from '@angular/core';
-import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, HttpErrorResponse} from '@angular/common/http';
-// import {AuthService} from './auth/auth.service';
+import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, HttpErrorResponse} from '@angular/common/http'; import {AuthService} from './auth/auth.service';
 import {Observable} from 'rxjs';
 import { tap, retry } from 'rxjs/operators';
-import {AuthProvider} from "./auth";
-import {timer} from "rxjs/observable/timer";
-// import {HandlerErrorHelpers} from '../helpers/handler-error/handler-error.helper';
+import { AuthProvider } from "./auth";
+import { timer } from "rxjs/observable/timer";
+ // import {HandlerErrorHelpers} from '../helpers/handler-error/handler-error.helper';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-    // protected handlerErrorHelper;
+     protected handlerErrorHelper;
 
     constructor(
         public auth: AuthProvider,
-        // private handler: HandlerErrorHelpers
+         private handler: HandlerErrorHelpers
     ) {
-        // this.handlerErrorHelper = handler;
+         this.handlerErrorHelper = handler;
 
     }
 
@@ -27,9 +26,9 @@ export class TokenInterceptor implements HttpInterceptor {
         });
 
 
-        // token.subscribe( () => {
-        //
-        // });
+         // token.subscribe( () => {
+
+         // });
 
 
         request = request.clone({
@@ -46,14 +45,14 @@ export class TokenInterceptor implements HttpInterceptor {
                 console.log('foi4');
 
                 if (event instanceof HttpResponse) {
-                    // if (event.body.error) { this.handlerErrorHelper.handle(event); }
+                     if (event.body.error) { this.handlerErrorHelper.handle(event); }
 
                 }
 
             },
             (error: any) => {
                 if (error instanceof HttpErrorResponse) {
-                    // this.handlerErrorHelper.handle(error);
+                     this.handlerErrorHelper.handle(error);
 
                 }
             })
@@ -63,10 +62,10 @@ export class TokenInterceptor implements HttpInterceptor {
         // return new Observable( (observer) => {
 
 
-        // this.auth.getToken().then((token) => {
-        //
+      // this.auth.getToken().then((token) => {
 
-        //convert the Promise to an Observable
+
+        // convert the Promise to an Observable
         // let storageObservable = Observable.fromPromise(this.auth.getToken());
 
         // storageObservable.flatMap( (token: any) => {
@@ -74,7 +73,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
         // return token;
         // }, err => {
-        //     // throw some error
+            // throw some error
         // })
 
 
