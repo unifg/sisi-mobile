@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, HttpErrorResponse} from '@angular/common/http'; import {AuthService} from './auth/auth.service';
+import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { tap, retry } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { AuthProvider } from "./auth";
-import { timer } from "rxjs/observable/timer";
- // import {HandlerErrorHelpers} from '../helpers/handler-error/handler-error.helper';
+// import { timer } from "rxjs/observable/timer";
+// import {HandlerErrorHelpers} from '../helpers/handler-error/handler-error.helper';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -12,9 +12,9 @@ export class TokenInterceptor implements HttpInterceptor {
 
     constructor(
         public auth: AuthProvider,
-         private handler: HandlerErrorHelpers
+        // private handler: HandlerErrorHelpers
     ) {
-         this.handlerErrorHelper = handler;
+        //  this.handlerErrorHelper = handler;
 
     }
 

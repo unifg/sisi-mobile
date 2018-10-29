@@ -20,6 +20,8 @@ import { LoginPage }          from '../pages/login/login';
 import { RegisterPage }       from '../pages/register/register';
 import { OccurrenceCardPage } from '../pages/occurrenceCard/occurrenceCard';
 import { OccurrencePage }     from '../pages/occurrence/occurrence';
+import { IrregularitiesCardPage } from './../pages/irregularities-card/irregularities-card';
+import { IrregularitiesPage } from './../pages/irregularities/irregularities';
 
 import { RegisterProvider }   from '../providers/register/register';
 import { AuthProvider }       from '../providers/auth/auth';
@@ -39,13 +41,15 @@ import { HttpService } from "../http-service/http.service";
     LoginPage,
     RegisterPage,
     OccurrenceCardPage,
-    OccurrencePage
+    OccurrencePage,
+    IrregularitiesCardPage,
+    IrregularitiesPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,7 +61,9 @@ import { HttpService } from "../http-service/http.service";
     LoginPage,
     RegisterPage,
     OccurrenceCardPage,
-    OccurrencePage
+    OccurrencePage,
+    IrregularitiesCardPage,
+    IrregularitiesPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
