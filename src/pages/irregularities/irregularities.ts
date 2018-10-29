@@ -1,3 +1,5 @@
+import { IIregularities } from './../../interfaces/IIregularities';
+import { IrregularitiesProvider } from './../../providers/irregularities/irregularities';
 import { IrregularitiesCardPage } from './../irregularities-card/irregularities-card';
 import { Component, ViewChild, ElementRef }                                                           from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController  }  from 'ionic-angular';
@@ -20,9 +22,15 @@ export class IrregularitiesPage {
   private marker: any;
   private lat: number;
   private lng: number;
+  private base64Img: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public geolocation: Geolocation, private toastCtrl: ToastController,
-    public alertCtrl: AlertController,) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public geolocation: Geolocation,
+              private toastCtrl: ToastController,
+              public alertCtrl: AlertController,
+              private irregularitiesProvider: IrregularitiesProvider
+               ) {
   }
 
   ionViewDidLoad() {
@@ -67,6 +75,11 @@ export class IrregularitiesPage {
 
   goToIrregularitiesCard() {
     this.navCtrl.setRoot(IrregularitiesCardPage);
+  }
+
+  save() {
+    let irregularitie: IIregularities = {imgBase64: this.base64Img}
+    this.irregularitiesProvider.saveIrregularitie(irregularitie)
   }
 
 }

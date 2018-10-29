@@ -29,6 +29,7 @@ import { UserProvider }       from '../providers/user/user';
 // import { TokenInterceptor }   from "../providers/auth/token-interceptor";
 import { OccurrenceProvider } from '../providers/occurrence/occurrence';
 import { HttpService } from "../http-service/http.service";
+import { IrregularitiesProvider } from '../providers/irregularities/irregularities';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { HttpService } from "../http-service/http.service";
     RegisterProvider,
     AuthProvider,
     UserProvider,
-    OccurrenceProvider
+    OccurrenceProvider,
+    IrregularitiesProvider
   ]
 })
 export class AppModule { }
