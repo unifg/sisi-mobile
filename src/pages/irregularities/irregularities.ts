@@ -78,7 +78,7 @@ export class IrregularitiesPage {
   }
 
   save() {
-    let irregularitie: IIregularities = {imgBase64: this.base64Img}
+    let irregularitie: IIregularities = {imgBase64: this.base64Img, title: 'ok', description: "teste"}
     this.irregularitiesProvider.saveIrregularitie(irregularitie)
   }
 
