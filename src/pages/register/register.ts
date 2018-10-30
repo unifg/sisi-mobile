@@ -26,7 +26,7 @@ export class RegisterPage {
     public userProvider: UserProvider
   ) {
     this.userForm = this.formBuilder.group({
-      name: ['', Validators.compose([Validators.required, Validators.maxLength(250)])],
+      name: ['', Validators.compose([Validators.required, Validators.minLength(5)])],
       cpf: [null, Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required],

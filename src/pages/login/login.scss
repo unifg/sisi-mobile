@@ -18,31 +18,21 @@ $transparent-white: rgba(255, 255, 255, .6);
     overflow: hidden;
   }
   .logo {
-    width: 45%;
+    width: 55%;
     height: auto;
-    max-width: 16em;
     margin: 0 auto;
     padding-top: 0px;
-    padding-bottom: 170px;
+    padding-bottom: 270px;
     background-color: transparent;  
   }
   .logo2 {
-    width: 45%;
+    width: 50%;
     height: auto;
     max-width: 16em;
     margin: 0 auto;
-    padding-top: 0px;
+    padding-top: 0%;
     padding-bottom: 50px;
-    background-color: transparent;  
-  }
-  .logo3 {
-    width: 45%;
-    height: auto;
-    max-width: 16em;
-    margin: 0 auto;
-    padding-top: 3px;
-    padding-bottom: 50px;
-    margin-right: 27%;
+    margin-right: 25%;
     background-color: transparent;  
   }
   .inputs {
@@ -114,6 +104,11 @@ $transparent-white: rgba(255, 255, 255, .6);
   }
   .list-md .item-input {
     border-bottom-color: transparent !important;
+  
+  .item-inner {
+      border-bottom: transparent;
+  }
+
   }
   ion-input {
     padding-left: 95px;
