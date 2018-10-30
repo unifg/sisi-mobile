@@ -77,10 +77,8 @@
     <p></p>
     <ion-item>
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="number" [(ngModel)]="phone" formControlName="phone" placeholder="Telefone"></ion-input>
+      <ion-input type="number" placeholder="Telefone"></ion-input>
     </ion-item>
-    <span padding *ngIf="!userForm.controls.phone.valid && (!userForm.controls.phone.untouched || userForm.controls.phone.dirty)"
-      class="error">Este campo é obrigatório</span>
     <p></p>
     <ion-item>
       <ion-label>Data de Nascimento </ion-label>
