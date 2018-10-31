@@ -1,11 +1,9 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserProvider } from '../../providers/user/user';
-import { IUser } from '../../interfaces/IUser';
 
 @Injectable()
 export class RegisterProvider {
-  url:string = 'http://104.131.99.239:5050/';
+  url:string = "http://209.97.147.27:81/";
 
   constructor(public http: HttpClient) {
 

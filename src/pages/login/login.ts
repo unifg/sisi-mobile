@@ -1,12 +1,12 @@
-import { TabsPage } from './../tabs/tabs';
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { TabsPage }                                                                     from './../tabs/tabs';
+import { Component }                                                                    from '@angular/core';
+import { FormBuilder, Validators }                                                      from '@angular/forms';
 import { AlertController, App, LoadingController, IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
-import { RegisterPage } from '../register/register';
-import { AuthProvider } from '../../providers/auth/auth';
-import { UserProvider } from '../../providers/user/user';
-import { IUser } from '../../interfaces/IUser'
+import { ToastController }                                                              from 'ionic-angular';
+import { RegisterPage }                                                                 from '../register/register';
+import { AuthProvider }                                                                 from '../../providers/auth/auth';
+import { UserProvider }                                                                 from '../../providers/user/user';
+import { IUser }                                                                        from '../../interfaces/IUser'
 
 @IonicPage()
 @Component({
@@ -24,12 +24,13 @@ export class LoginPage {
 
   constructor(
     public loadingCtrl: LoadingController,
+    private toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public navCtrl: NavController,
     public navParams: NavParams,
     public app: App,
     private formBuilder: FormBuilder,
-    private toastCtrl: ToastController,
+
     public authProvider: AuthProvider,
     public userProvider: UserProvider
   ){
@@ -61,14 +62,14 @@ export class LoginPage {
         loading.dismissAll();
         this.authProvider.setToken(res);
         this.navCtrl.setRoot(TabsPage);
-      }, erro => {
-        console.log("Erro" + erro.message);
+      }, error => {
+        console.log("Erro" + error.message);
         loading.dismissAll();
         toast.present();
       });
   }
 
-  goToRegisterPage() {
+    goToRegisterPage() {
     this.navCtrl.push(RegisterPage);
   }
 }

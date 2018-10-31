@@ -1,18 +1,13 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { IUser } from '../../interfaces/IUser';
 
-/*
-  Generated class for the UserProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class UserProvider {
 
-  url:string= 'http://104.131.99.239:5050/';
+  url:string= "http://209.97.147.27:81/";
   headers:any;
 
   constructor(public http: HttpClient) {
@@ -26,7 +21,7 @@ export class UserProvider {
   }
 
   getUser(){
-    
+
   }
 
   }

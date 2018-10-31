@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
-import { HomePage } from '../home/home';
+import { Component }          from '@angular/core';
+import { HomePage }           from '../home/home';
+import { OccurrenceCardPage } from '../occurrenceCard/occurrenceCard';
+import { LoginPage }          from "../login/login";
+import { NavController }      from "ionic-angular";
+import { Storage }            from '@ionic/storage';
+
 
 @Component({
   templateUrl: 'tabs.html'
@@ -9,10 +12,15 @@ import { HomePage } from '../home/home';
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
+  tab2Root = OccurrenceCardPage;
+  tab4Root = LoginPage;
 
-  constructor() {
+  constructor(public navCtrl: NavController, private storage: Storage) {
 
+  }
+
+  logout() {
+    this.storage.remove('token');
+    this.navCtrl.setRoot(LoginPage);
   }
 }
