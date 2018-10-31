@@ -1,4 +1,4 @@
-page-register {
+page-reperfil {
     .nome-container{
         position: absolute;
         z-index: 2;
@@ -20,11 +20,11 @@ page-register {
     .error {
         color: darkred;
     }
-    .button-border{
-        border-radius: 20px;
-    }
     .border{
         border-radius: 20px;
         border: 2px solid black ;
     }
-};
+    .button-border{
+        border-radius: 20px;
+    }
+}
