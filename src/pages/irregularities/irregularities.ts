@@ -1,10 +1,11 @@
 import { IIregularities } from './../../interfaces/IIregularities';
 import { IrregularitiesProvider } from './../../providers/irregularities/irregularities';
 import { IrregularitiesCardPage } from './../irregularities-card/irregularities-card';
-import { Component, ViewChild, ElementRef }                                                           from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController  }  from 'ionic-angular';
-import { Geolocation }                                                                                from '@ionic-native/geolocation';
-import { TabsPage }                                                                                   from '../tabs/tabs';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { TabsPage } from '../tabs/tabs';
 
 declare let google: any;
 
@@ -22,15 +23,16 @@ export class IrregularitiesPage {
   private marker: any;
   private lat: number;
   private lng: number;
-  private base64Img: string
+  private base64Image: string
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public geolocation: Geolocation,
-              private toastCtrl: ToastController,
-              public alertCtrl: AlertController,
-              private irregularitiesProvider: IrregularitiesProvider
-               ) {
+    public navParams: NavParams,
+    public geolocation: Geolocation,
+    private toastCtrl: ToastController,
+    public alertCtrl: AlertController,
+    private irregularitiesProvider: IrregularitiesProvider,
+    private camera: Camera
+  ) {
   }
 
   ionViewDidLoad() {
@@ -78,8 +80,21 @@ export class IrregularitiesPage {
   }
 
   save() {
-    let irregularitie: IIregularities = {imgBase64: this.base64Img, title: 'ok', description: "teste"}
+    let irregularitie: IIregularities = { imgBase64: this.base64Image, title: 'ok', description: "teste" }
     this.irregularitiesProvider.saveIrregularitie(irregularitie)
+  }
+  getPicture() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    this.camera.getPicture(options).then((imageData) => {
+      this.base64Image = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+      // Tratar erro.
+    })
   }
 
 }
