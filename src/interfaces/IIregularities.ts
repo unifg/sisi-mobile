@@ -1,5 +1,5 @@
 export interface IIregularities {
   title: string
-  descriptionio: string
+  description: string
   imgBase64: string
 }
