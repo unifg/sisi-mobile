@@ -8,7 +8,7 @@ $transparent-white: rgba(255, 255, 255, .6);
   // Fullscreen centered image background
   ion-content {
     width: 100%;
-    background-size: 100%;  
+    background-size: 100%;
     background-repeat: no-repeat;
   }
   .scroll-content {
@@ -24,7 +24,7 @@ $transparent-white: rgba(255, 255, 255, .6);
     margin: 0 auto;
     padding-top: 0px;
     padding-bottom: 170px;
-    background-color: transparent;  
+    background-color: transparent;
   }
   .logo2 {
     width: 45%;
@@ -33,7 +33,7 @@ $transparent-white: rgba(255, 255, 255, .6);
     margin: 0 auto;
     padding-top: 0px;
     padding-bottom: 50px;
-    background-color: transparent;  
+    background-color: transparent;
   }
   .logo3 {
     width: 45%;
@@ -43,7 +43,7 @@ $transparent-white: rgba(255, 255, 255, .6);
     padding-top: 3px;
     padding-bottom: 50px;
     margin-right: 27%;
-    background-color: transparent;  
+    background-color: transparent;
   }
   .inputs {
     padding-top: 0%;
@@ -133,6 +133,9 @@ $transparent-white: rgba(255, 255, 255, .6);
     -webkit-border-radius: 50px;
     border-radius: 10px;
     margin-bottom: 10px;
-  }    
+  }
+  input.ng-valid {
+    background-color:lightgreen;
+}
   }
 }

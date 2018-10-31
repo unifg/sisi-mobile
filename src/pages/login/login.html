@@ -21,13 +21,13 @@
               <ion-label class="label"></ion-label>
               <ion-input class="login-input" type="email" [(ngModel)]="email" formControlName="email" placeholder="Email"></ion-input>
             </ion-item>
-            <span padding *ngIf="!userForm.controls.email.valid && (!userForm.controls.email.pristine || userForm.controls.email.dirty)"
+            <span padding *ngIf="!userForm.controls.email.valid && (!userForm.controls.email.$submitted  || userForm.controls.email.dirty)"
               class="error">Email ou Senha estão incorretos</span>
             <ion-item>
               <ion-label color="primary"></ion-label>
               <ion-input class="login-input" type="password" [(ngModel)]="password" formControlName="password" placeholder="Senha"></ion-input>
             </ion-item>
-            <span padding *ngIf="!userForm.controls.password.valid && (!userForm.controls.password.pristine || userForm.controls.password.dirty)"
+            <span padding *ngIf="!userForm.controls.password.valid && (!userForm.controls.password.$submitted  || userForm.controls.password.dirty)"
               class="error">Email ou Senha estão incorretos</span>
           </ion-list>
         </ion-col>
