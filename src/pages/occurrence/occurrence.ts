@@ -1,10 +1,10 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef }                                                         from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
-import { FeedPage } from '../feed/feed';
-import { TabsPage } from '../tabs/tabs';
-import { OccurrenceProvider } from '../../providers/occurrence/occurrence';
-import { FormBuilder, Validators } from "@angular/forms";
+import { Geolocation }                                                                              from '@ionic-native/geolocation';
+import { OccurrenceCardPage }                                                                       from '../occurrenceCard/occurrenceCard';
+import { TabsPage }                                                                                 from '../tabs/tabs';
+import { OccurrenceProvider }                                                                       from '../../providers/occurrence/occurrence';
+import { FormBuilder, Validators }                                                                  from "@angular/forms";
 
 declare let google: any;
 
@@ -100,12 +100,12 @@ export class OccurrencePage {
     });
   }
 
-  goToFeed() {
-    this.navCtrl.setRoot(FeedPage);
+  goToOccurrenceCard() {
+    this.navCtrl.setRoot(OccurrenceCardPage);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OcorrenciaPage');
+    console.log('ionViewDidLoad OccurrencePage');
     this.geolocation.getCurrentPosition().then(pos => {
       const position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 

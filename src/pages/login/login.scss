@@ -1,5 +1,4 @@
 page-login {
-
   /*.bg-image {
     background-image: url('../assets/img/background.png');
      background-repeat: no-repeat;
@@ -46,12 +45,10 @@ $transparent-white: rgba(255, 255, 255, .6);
     padding-top: 0%;
     margin-top: 0%;
   }
-
   .text-input::-webkit-input-placeholder {
     text-indent: 0;
     color: #990000;
   }
-
   .no-border {
     border-bottom: 0 !important;
     box-shadow: none !important;
@@ -69,7 +66,6 @@ $transparent-white: rgba(255, 255, 255, .6);
       max-width: 40%;
     }
   }
-
   ion-item {
     margin-top: 0%;
     padding-left: 10px !important;
@@ -132,7 +128,6 @@ $transparent-white: rgba(255, 255, 255, .6);
   }
 
   ion-input {
-
     padding-left: 95px;
     margin-bottom: 10px;
     color: #000000;
@@ -142,7 +137,6 @@ $transparent-white: rgba(255, 255, 255, .6);
     border-radius: 10px ;
     -moz-border-radius: 10px ;
     -webkit-border-radius: 10px ;
-
   .label{
     margin-top: 3%;
     width: 100%;
