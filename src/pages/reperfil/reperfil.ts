@@ -5,17 +5,13 @@ import { RegisterProvider } from '../../providers/register/register';
 import { UserProvider } from '../../providers/user/user';
 import { ToastController } from 'ionic-angular';
 import { IUser } from '../../interfaces/IUser';
-import { ReperfilPage } from '../reperfil/reperfil';
-
-
 
 @IonicPage()
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html',
+  selector: 'page-reperfil',
+  templateUrl: 'reperfil.html',
 })
-export class RegisterPage {
-
+export class ReperfilPage {
   user: IUser = { name: '', cpf: '', email: '', password: '', gender: '', skin_color: '', cellphone: '', phone: '', birthdate: '' };
   public userForm: any
 
@@ -40,7 +36,6 @@ export class RegisterPage {
       confirmPassword: ['', Validators.required]
     })
   }
-
   presentToast() {
     let toast = this.toastCtrl.create({
       message: 'Usuário criado com sucesso',
@@ -54,12 +49,6 @@ export class RegisterPage {
 
     toast.present()
   }
-
-  goToLoginPage() {
-    this.navCtrl.pop();
-  }
-
-
   addUser() {
     let user = {
       name: this.userForm.controls.name.value,
@@ -80,7 +69,9 @@ export class RegisterPage {
       console.log("Erro: " + erro.message);
     });
   }
-  goToReperfilPage() {
-    this.navCtrl.push(ReperfilPage);
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ReperfilPage');
   }
+
 }

@@ -100,12 +100,12 @@ export class OccurrencePage {
     });
   }
 
-  goToFeed() {
+  goToOccurrenceCard() {
     this.navCtrl.setRoot(OccurrenceCardPage);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OcorrenciaPage');
+    console.log('ionViewDidLoad OccurrencePage');
     this.geolocation.getCurrentPosition().then(pos => {
       const position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 

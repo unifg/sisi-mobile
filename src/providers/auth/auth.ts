@@ -11,7 +11,7 @@ export class AuthProvider {
         public http: HttpService,
         private storage: Storage
     ) {
-        // this.headers = {"headers": {"authorization": "Bearer "}};
+        this.headers = {"headers": {"authorization": "Bearer "}};
     }
 
     setToken(token) {
