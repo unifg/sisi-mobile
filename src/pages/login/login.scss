@@ -4,47 +4,43 @@ page-login {
      background-repeat: no-repeat;
     background-size: extends;
   }*/
+
 $transparent-white: rgba(255, 255, 255, .6);
   // Fullscreen centered image background
   ion-content {
+
     width: 100%;
     background-size: 100%;
     background-repeat: no-repeat;
   }
+
   .scroll-content {
     background-image: radial-gradient(center center, ellipse cover, #ffeda3, #ffc800);
     display: flex;
     flex-direction: column;
     overflow: hidden;
   }
+
   .logo {
-    width: 45%;
+    width: 55%;
     height: auto;
-    max-width: 16em;
     margin: 0 auto;
     padding-top: 0px;
-    padding-bottom: 170px;
-    background-color: transparent;
+    padding-bottom: 260px;
+    background-color: transparent;  
   }
+
   .logo2 {
-    width: 45%;
+    width: 50%;
     height: auto;
     max-width: 16em;
     margin: 0 auto;
-    padding-top: 0px;
+    padding-top: 0%;
     padding-bottom: 50px;
-    background-color: transparent;
+    margin-right: 25%;
+    background-color: transparent;  
   }
-  .logo3 {
-    width: 45%;
-    height: auto;
-    max-width: 16em;
-    margin: 0 auto;
-    padding-top: 3px;
-    padding-bottom: 50px;
-    margin-right: 27%;
-    background-color: transparent;
-  }
+
   .inputs {
     padding-top: 0%;
     margin-top: 0%;
@@ -57,11 +53,14 @@ $transparent-white: rgba(255, 255, 255, .6);
     border-bottom: 0 !important;
     box-shadow: none !important;
   }
+
   ion-row {
     align-items: center;
     text-align: center;
   }
+
   @media only screen and (min-width: 768px) {
+  
     ion-col.col {
       margin: 0 auto;
       max-width: 40%;
@@ -75,9 +74,11 @@ $transparent-white: rgba(255, 255, 255, .6);
     opacity: 0.7;
     font-size: 0.9em;
   }
+
   ion-list {
     margin: 0;
   }
+
   .login-button {
     width: 91%;
     font-size: 0.9em;
@@ -85,9 +86,10 @@ $transparent-white: rgba(255, 255, 255, .6);
     background-color: #990000;
     padding-button: 20px;
     line-height: 16px;
-    margin-left: 4%;
+    margin-left: 3%;
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1)
   }
+
   .login-button-face {
     width: 85%;
     border-radius: 20px;
@@ -96,6 +98,7 @@ $transparent-white: rgba(255, 255, 255, .6);
     margin-left: 7%;
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
   }
+
   .login-button-google {
     width: 85%;
     border-radius: 20px;
@@ -103,18 +106,27 @@ $transparent-white: rgba(255, 255, 255, .6);
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
     height: 30px;
   }
+
   .cor-cadastro {
     color: #990000;
     font-size: 1.0em;
     outline-width: 3px;
   }
+
   .strike {
     text-align: center;
     font-size: 0.8em;
   }
+
   .list-md .item-input {
+
     border-bottom-color: transparent !important;
+
+   .item-inner {
+      border-bottom: transparent;
+     }
   }
+
   ion-input {
     padding-left: 95px;
     margin-bottom: 10px;
