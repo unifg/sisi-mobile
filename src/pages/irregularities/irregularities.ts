@@ -5,7 +5,6 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { TabsPage } from '../tabs/tabs';
 
 declare let google: any;
 
@@ -24,19 +23,26 @@ export class IrregularitiesPage {
   private lat: number;
   private lng: number;
   private base64Image: string
+  private irregularitie_id: number
+  private title: string
+  private story: string
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public geolocation: Geolocation,
-    private toastCtrl: ToastController,
     public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController,
+    private toastCtrl: ToastController,
     private irregularitiesProvider: IrregularitiesProvider,
     private camera: Camera
   ) {
+
+    this.irregularitie_id = navParams.get('irregularitie_id')
+    console.log(this.irregularitie_id)
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OccurrencePage');
+    console.log('ionViewDidLoad Irregularities Page');
     this.geolocation.getCurrentPosition().then(pos => {
       const position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 
@@ -55,10 +61,9 @@ export class IrregularitiesPage {
         map: map,
         title: 'Você está aqui!'
       });
+      console.log('so far so good');
 
-
-    }).catch(err => console.log(err));
-
+    }).catch(err => console.log('hm', err));
   }
 
   getPosition() {
@@ -80,9 +85,42 @@ export class IrregularitiesPage {
   }
 
   save() {
-    let irregularitie: IIregularities = { imgBase64: this.base64Image, title: 'ok', description: "teste" }
-    this.irregularitiesProvider.saveIrregularitie(irregularitie)
+    let loading = this.loadingCtrl.create({
+      content: 'Aguarde, por favor...'
+    });
+
+    const toast = this.toastCtrl.create({
+      message: 'Não foi possível registrar a essa irregularidade, verifique os dados informados!',
+      position: 'top',
+      duration: 5000
+    });
+
+    const success = this.toastCtrl.create({
+      message: 'Irregularidade cadastrada com sucesso!',
+      position: 'top',
+      duration: 5000
+    });
+
+    let irregularitie: IIregularities = {
+      title: this.title,
+      story: this.story,
+      coordinates: `${this.lat.toFixed(5)}, ${this.lng.toFixed(5)}`,
+      zone_id: 1,
+      irregularity_type_id: this.irregularitie_id,
+    };
+
+    loading.present();
+
+    this.irregularitiesProvider.saveIrregularitie(irregularitie).subscribe(res => {
+      loading.dismissAll();
+      success.present();
+    }, error => {
+      console.log("Erro" + error.message);
+      loading.dismissAll();
+      toast.present();
+    });
   }
+
   getPicture() {
     const options: CameraOptions = {
       quality: 100,

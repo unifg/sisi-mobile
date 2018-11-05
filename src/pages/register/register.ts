@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterProvider } from '../../providers/register/register';
 import { UserProvider } from '../../providers/user/user';
 import { ToastController } from 'ionic-angular';
 import { IUser } from '../../interfaces/IUser';
-import { ReperfilPage } from '../reperfil/reperfil';
-
 
 
 @IonicPage()
@@ -17,7 +15,19 @@ import { ReperfilPage } from '../reperfil/reperfil';
 export class RegisterPage {
 
   user: IUser = { name: '', cpf: '', email: '', password: '', gender: '', skin_color: '', cellphone: '', phone: '', birthdate: '' };
-  public userForm: any
+
+  registerForm: FormGroup;
+  loading = false;
+  submitted;
+
+//validator patterns
+
+  namePattern = '^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]{10,52}$';
+  cellpPattern = '^((\\+91-?)|0)?[0-9]{11}$';
+  passPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
+  phonePattern = '^((\\+91-?)|0)?[0-9]{10}$';
+  cpfPattern = '^[0-9]{11}$';
+  telePattern = '^((\\+91-?)|0)?[0-9]{11}$';
 
   constructor(
     public navCtrl: NavController,
@@ -25,19 +35,21 @@ export class RegisterPage {
     private registerProvider: RegisterProvider,
     private formBuilder: FormBuilder,
     private toastCtrl: ToastController,
-    public userProvider: UserProvider
+    public userProvider: UserProvider,
+
   ) {
-    this.userForm = this.formBuilder.group({
-      name: ['', Validators.compose([Validators.required, Validators.maxLength(250)])],
-      cpf: [null, Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.required],
+    this.registerForm = this.formBuilder.group({
+      name: ['', Validators.compose([Validators.required, Validators.pattern(this.namePattern) ])],
+      cpf: ['', [Validators.required, Validators.pattern(this.cpfPattern)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern(this.passPattern)]],
       birthdate: ['', Validators.required],
       gender: ['', Validators.required],
-      cellphone: ['', Validators.required],
+      cellphone: ['', [Validators.required, Validators.pattern(this.cellpPattern)]],
+      telefone: ['', [Validators.required, Validators.pattern(this.telePattern)]],
       status: ['ATIVO', Validators.required],
+      confirmPassword: ['', Validators.required],
       skin_color: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
     })
   }
 
@@ -62,15 +74,16 @@ export class RegisterPage {
 
   addUser() {
     let user = {
-      name: this.userForm.controls.name.value,
-      cpf: this.userForm.controls.cpf.value,
-      email: this.userForm.controls.email.value,
-      password: this.userForm.controls.password.value,
-      birthdate: this.userForm.controls.birthdate.value,
-      gender: this.userForm.controls.gender.value,
-      cellphone: this.userForm.controls.cellphone.value,
-      status: this.userForm.controls.status.value,
-      skin_color: this.userForm.controls.skin_color.value
+      name: this.registerForm.controls.name.value,
+      cpf: this.registerForm.controls.cpf.value,
+      email: this.registerForm.controls.email.value,
+      password: this.registerForm.controls.password.value,
+      birthdate: this.registerForm.controls.birthdate.value,
+      gender: this.registerForm.controls.gender.value,
+      cellphone: this.registerForm.controls.cellphone.value,
+      telefone:this.registerForm.controls.telefone.value,
+      status: this.registerForm.controls.status.value,
+      skin_color: this.registerForm.controls.skin_color.value
     }
     this.userProvider.addUser(user).subscribe(res => {
       this.registerProvider.registerUser(user);
@@ -79,8 +92,5 @@ export class RegisterPage {
     }, erro => {
       console.log("Erro: " + erro.message);
     });
-  }
-  goToReperfilPage() {
-    this.navCtrl.push(ReperfilPage);
   }
 }

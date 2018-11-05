@@ -14,14 +14,15 @@ export class IrregularitiesCardPage {
     public navCtrl: NavController,
     public navParams: NavParams,
 
-
-    ) {}
+  ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IrregularitiesCardPage')
   }
 
-  goToIrregularitiesPage() {
-    this.navCtrl.push(IrregularitiesPage)
+  goToIrregularitiesPage(id) {
+    this.navCtrl.push(IrregularitiesPage, {
+      irregularitie_id: id
+    })
   }
 }
