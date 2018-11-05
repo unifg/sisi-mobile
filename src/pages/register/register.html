@@ -6,39 +6,64 @@
 </ion-header>
 
 <ion-content padding style="margin-top: 20px">
-  <form [formGroup]="userForm" novalidate>
+  <form [formGroup]="registerForm" novalidate>
+      <ion-item class="border">
+          <ion-label color="primary" stacked></ion-label>
+          <ion-input 
+            type="name"
+            [(ngModel)]="registerForm.name"
+            formControlName="name"
+            placeholder="Nome Completo" ></ion-input>
+      </ion-item>
+      <span padding *ngIf="!registerForm.controls.name.valid && (!registerForm.controls.name.untouched || registerForm.controls.name.dirty)"
+        class="error">Informe um nome completo</span>
+      <p></p>
+
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="name" [(ngModel)]="name" formControlName="name" placeholder="Nome Completo"></ion-input>
+          <ion-input 
+            type="number" 
+            [(ngModel)]="registerForm.cpf" 
+            formControlName="cpf"
+            placeholder="CPF" ></ion-input>
     </ion-item>
-    <span padding *ngIf="!userForm.controls.name.valid && (!userForm.controls.name.untouched || userForm.controls.name.dirty)"
-      class="error">Este campo é obrigatório</span>
+    <span padding *ngIf="!registerForm.controls.cpf.valid && (!registerForm.controls.cpf.untouched || registerForm.controls.cpf.dirty)" 
+      class="error">Informe um CPF válido</span>
     <p></p>
+
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="number" [(ngModel)]="cpf" formControlName="cpf" placeholder="CPF"></ion-input>
+      <ion-input 
+          type="email" 
+          [(ngModel)]="registerForm.email" 
+          formControlName="email" 
+          placeholder="Email" ></ion-input>
     </ion-item>
-    <span padding *ngIf="!userForm.controls.cpf.valid && (!userForm.controls.cpf.untouched || userForm.controls.cpf.dirty)" class="error">Este campo é obrigatório</span>
+    <span padding *ngIf="!registerForm.controls.email.valid && (!registerForm.controls.email.untouched || registerForm.controls.email.dirty)"
+      class="error">Informe um email válido</span>
     <p></p>
+
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="email" [(ngModel)]="email" formControlName="email" placeholder="Email"></ion-input>
+      <ion-input 
+          type="password" 
+          [(ngModel)]="registerForm.password" 
+          formControlName="password" 
+          placeholder="Senha" ></ion-input>
     </ion-item>
-    <span padding *ngIf="!userForm.controls.email.valid && (!userForm.controls.email.untouched || userForm.controls.email.dirty)"
-      class="error">Este campo é obrigatório</span>
+    <span padding *ngIf="!registerForm.controls.password.valid && (!registerForm.controls.password.untouched || registerForm.controls.password.dirty)"
+      class="error">A Senha deverá ter no mínimo 8 caracteres, contendo números, letras maiúsculas e letras minúsculas</span>
     <p></p>
+
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="password" [(ngModel)]="password" formControlName="password" placeholder="Senha"></ion-input>
+      <ion-input 
+          type="password" 
+          [(ngModel)]="registerForm.confirmPassword" 
+          formControlName="confirmPassword" 
+          placeholder="Confirme Sua Senha" ></ion-input>
     </ion-item>
-    <span padding *ngIf="!userForm.controls.password.valid && (!userForm.controls.password.untouched || userForm.controls.password.dirty)"
-      class="error">Este campo é obrigatório</span>
-    <p></p>
-    <ion-item class="border">
-      <ion-label color="primary" stacked></ion-label>
-      <ion-input type="password" [(ngModel)]="confirmPassword" formControlName="confirmPassword" placeholder="Confirme Sua Senha"></ion-input>
-    </ion-item>
-    <span padding *ngIf="userForm.controls.password.value != confirmPassword &&  (!userForm.controls.confirmPassword.untouched || userForm.controls.confirmPassword.dirty)"
+    <span padding *ngIf="registerForm.controls.password.value != confirmPassword &&  (!registerForm.controls.confirmPassword.untouched || registerForm.controls.confirmPassword.dirty)"
       class="error">A senha está diferente</span>
     <p></p>
     <button ion-button class="button-border" style="background-color:#990000;" (click)="goToLoginPage()">Cancelar</button>
