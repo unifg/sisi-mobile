@@ -6,6 +6,8 @@ import { IonicPage, NavController, NavParams, LoadingController, AlertController
 import { Geolocation } from '@ionic-native/geolocation';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { TabsPage } from '../tabs/tabs';
+import { FormBuilder, Validators }                                                                  from "@angular/forms";
+
 
 declare let google: any;
 
@@ -23,7 +25,8 @@ export class IrregularitiesPage {
   private marker: any;
   private lat: number;
   private lng: number;
-  private base64Image: string
+  private base64Image: string;
+  private irregularitiesForm: any;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -31,9 +34,8 @@ export class IrregularitiesPage {
     private toastCtrl: ToastController,
     public alertCtrl: AlertController,
     private irregularitiesProvider: IrregularitiesProvider,
-    private camera: Camera
-  ) {
-  }
+    private camera: Camera,
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OccurrencePage');
