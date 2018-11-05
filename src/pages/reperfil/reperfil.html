@@ -7,54 +7,74 @@
 
 
 <ion-content padding style="margin-top: 20px">
-  <form [formGroup]="userForm" novalidate>
+  <form [formGroup]="registerForm" novalidate>
       <ion-item class="border">
           <ion-label>Gênero</ion-label>
           <ion-select [(ngModel)]="gender" formControlName="gender">
-            <ion-option value="FEMININO">Feminino</ion-option>
-            <ion-option value="MASCULINO">Masculino</ion-option>
-            <ion-option value="TRANS_FEM">Trans-Feminino</ion-option>
-            <ion-option value="TRANS_MASC">Trans-Masculino</ion-option>
-            <ion-option value="NAO_DECLARADO">Não informado</ion-option>
+              <ion-option value="FEMININO">Feminino</ion-option>
+              <ion-option value="MASCULINO">Masculino</ion-option>
+              <ion-option value="TRANS_FEM">Trans-Feminino</ion-option>
+              <ion-option value="TRANS_MASC">Trans-Masculino</ion-option>
+              <ion-option value="NAO_DECLARADO">Não informado</ion-option>
           </ion-select>
         </ion-item>
-        <span padding *ngIf="!userForm.controls.gender.valid && (!userForm.controls.gender.untouched || userForm.controls.gender.dirty)"
-          class="error">Este campo é obrigatório</span>
+        <span padding *ngIf="!registerForm.controls.gender.valid && (!registerForm.controls.gender.untouched || registerForm.controls.gender.dirty)"
+          class="error">Informe um gênero</span>
         <p></p>
+
         <ion-item class="border">
-          <ion-label>Cor</ion-label>
-          <ion-select [(ngModel)]="skin_color" formControlName="skin_color">
-            <ion-option value="BRANCO">Branco</ion-option>
-            <ion-option value="PARDO">Pardo</ion-option>
-            <ion-option value="NEGRO">Negro</ion-option>
-            <ion-option value="INDIGENA">Indígena</ion-option>
-            <ion-option value="AMARELO">Amarelo</ion-option>
-          </ion-select>
+            <ion-label>Cor</ion-label>
+            <ion-select [(ngModel)]="skin_color" formControlName="skin_color">
+                <ion-option value="BRANCO">Branco</ion-option>
+                <ion-option value="PARDO">Pardo</ion-option>
+                <ion-option value="NEGRO">Negro</ion-option>
+                <ion-option value="INDIGENA">Indígena</ion-option>
+                <ion-option value="AMARELO">Amarelo</ion-option>
+            </ion-select>
         </ion-item>
-        <span padding *ngIf="!userForm.controls.skin_color.valid && (!userForm.controls.skin_color.untouched || userForm.controls.skin_color.dirty)"
-          class="error">Este campo é obrigatório</span>
+        <span padding *ngIf="!registerForm.controls.skin_color.valid && (!registerForm.controls.skin_color.untouched || registerForm.controls.skin_color.dirty)"
+          class="error">Informe um tipo de raça/cor/etinia</span>
         <p></p>
+
         <ion-item class="border">
-          <ion-label color="primary" stacked></ion-label>
-          <ion-input type="number" [(ngModel)]="cellphone" formControlName="cellphone" placeholder="Celular"></ion-input>
+            <ion-label color="primary" stacked></ion-label>
+            <ion-input
+               type="number"
+               [(ngModel)]="cellphone"
+               formControlName="cellphone"
+               placeholder="Celular">
+            </ion-input>
         </ion-item>
-        <span padding *ngIf="!userForm.controls.cellphone.valid && (!userForm.controls.cellphone.untouched || userForm.controls.cellphone.dirty)"
-          class="error">Este campo é obrigatório</span>
-        <p></p>
+         <span padding *ngIf="!registerForm.controls.cellphone.valid && (!registerForm.controls.cellphone.untouched || registerForm.controls.cellphone.dirty)"
+          class="error">Informe um número de celular válido</span>
+         <p></p>
+
         <ion-item class="border">
-          <ion-label color="primary" stacked></ion-label>
-          <ion-input type="number" placeholder="Telefone"></ion-input>
+            <ion-label color="primary" stacked></ion-label>
+            <ion-input
+                type="number"
+                [(ngModel)]="telefone"
+                formControlName="telefone"
+                placeholder="Telefone">
+            </ion-input>
         </ion-item>
+        <span padding *ngIf="!registerForm.controls.telefone.valid && (!registerForm.controls.telefone.untouched || registerForm.controls.telefone.dirty)"
+          class="error">Informe um número de telefone válido</span>
         <p></p>
+
         <ion-item class="border">
           <ion-label>Data de Nascimento </ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="birthdate" formControlName="birthdate"></ion-datetime>
+          <ion-datetime
+          displayFormat="DD/MM/YYYY"
+          [(ngModel)]="birthdate"
+          formControlName="birthdate"></ion-datetime>
         </ion-item>
-        <span padding *ngIf="!userForm.controls.birthdate.valid && (!userForm.controls.birthdate.untouched || userForm.controls.birthdate.dirty)"
+        <span padding *ngIf="!registerForm.controls.birthdate.valid && (!registerForm.controls.birthdate.untouched || registerForm.controls.birthdate.dirty)"
           class="error">Este campo é obrigatório</span>
           <p></p>
           <button ion-button class="button-border" style="background-color:#990000;" (click)="goToRegisterPage()">Voltar</button>
-          <button ion-button class="button-border" style="background-color:#990000;" (click)="addUser()">Cadastrar</button>
-  </form>
+          <button ion-button class="button-border" style="background-color:#990000;">Cadastrar</button>
+
+        </form>
 
 </ion-content>
