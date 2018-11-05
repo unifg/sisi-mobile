@@ -20,17 +20,17 @@
 
   <ion-item>
     <ion-label color="primary" stacked>Título:</ion-label>
-    <ion-input type="title" placeholder="Resumir a descrição em uma frase"></ion-input>
+    <ion-input type="title" [(ngModel)]="title" placeholder="Resumir a descrição em uma frase"></ion-input>
   </ion-item>
   <br>
   <ion-item>
     <ion-label color="primary" stacked>Descrição:</ion-label>
-    <ion-input type="story"></ion-input>
+    <ion-input type="story" [(ngModel)]="story"></ion-input>
   </ion-item>
   <button ion-button (click)="getPicture()" color="dark">Tirar Foto</button>
-  <img [src]="base64Image" />
+  <img *ngIf="base64Image" [src]="base64Image" />
   <br>
   <button ion-button round (click)="goToIrregularitiesCard()">Cancelar</button>
-  <button ion-button round>Enviar</button>
+  <button ion-button round (click)="save()">Enviar</button>
 
 </ion-content>

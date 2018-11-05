@@ -1,7 +1,6 @@
 import { IIregularities } from './../../interfaces/IIregularities';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 /*
   Generated class for the IrregularitiesProvider provider.
 
@@ -15,8 +14,18 @@ export class IrregularitiesProvider {
     console.log('Hello IrregularitiesProvider Provider');
   }
 
-  saveIrregularitie(irregularities: IIregularities) {
-    return this.http.post(this.url + 'api/irregularities', irregularities);
+  saveIrregularitie(irregularitie: IIregularities) {
+    let token = localStorage.getItem('token')
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    }
+    console.log(httpOptions);
+    console.log(irregularitie);
+
+    return this.http.post(this.url + 'api/irregularity-reports', irregularitie, httpOptions);
   }
 
 }

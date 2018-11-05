@@ -5,6 +5,7 @@ import { RegisterProvider } from '../../providers/register/register';
 import { UserProvider } from '../../providers/user/user';
 import { ToastController } from 'ionic-angular';
 import { IUser } from '../../interfaces/IUser';
+import { RegisterPage } from '../register/register';
 
 @IonicPage()
 @Component({
@@ -79,5 +80,8 @@ export class ReperfilPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReperfilPage');
   }
-
+  
+  goToRegisterPage() {
+    this.navCtrl.popTo(RegisterPage);
+  }
 }
