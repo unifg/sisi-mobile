@@ -74,7 +74,7 @@ export class ReperfilPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReperfilPage');
   }
-  
+
   goToRegisterPage() {
     this.navCtrl.popTo(RegisterPage);
   }

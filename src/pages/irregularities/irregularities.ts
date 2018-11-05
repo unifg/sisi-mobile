@@ -5,12 +5,6 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-<<<<<<< HEAD
-import { TabsPage } from '../tabs/tabs';
-import { FormBuilder, Validators }                                                                  from "@angular/forms";
-
-=======
->>>>>>> 88da6eafebd886bf9b71c14a6abecdf5a5a40b8d
 
 declare let google: any;
 
@@ -28,15 +22,10 @@ export class IrregularitiesPage {
   private marker: any;
   private lat: number;
   private lng: number;
-<<<<<<< HEAD
-  private base64Image: string;
-  private irregularitiesForm: any;
-=======
   private base64Image: string
   private irregularitie_id: number
   private title: string
   private story: string
->>>>>>> 88da6eafebd886bf9b71c14a6abecdf5a5a40b8d
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -45,16 +34,11 @@ export class IrregularitiesPage {
     public loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private irregularitiesProvider: IrregularitiesProvider,
-<<<<<<< HEAD
-    private camera: Camera,
-  ) {}
-=======
     private camera: Camera
   ) {
     this.irregularitie_id = navParams.get('irregularitie_id')
     console.log(this.irregularitie_id)
   }
->>>>>>> 88da6eafebd886bf9b71c14a6abecdf5a5a40b8d
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Irregularities Page');

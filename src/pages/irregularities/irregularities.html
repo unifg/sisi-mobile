@@ -20,11 +20,7 @@
 
   <ion-item>
     <ion-label color="primary" stacked>Título:</ion-label>
-<<<<<<< HEAD
-    <ion-input type="title"></ion-input>
-=======
     <ion-input type="title" [(ngModel)]="title" placeholder="Resumir a descrição em uma frase"></ion-input>
->>>>>>> 88da6eafebd886bf9b71c14a6abecdf5a5a40b8d
   </ion-item>
   <br>
   <ion-item>
@@ -33,11 +29,7 @@
   </ion-item>
   <br>
   <button ion-button (click)="getPicture()" color="dark">Tirar Foto</button>
-<<<<<<< HEAD
-  <img [src]="base64Image"/>
-=======
   <img *ngIf="base64Image" [src]="base64Image" />
->>>>>>> 88da6eafebd886bf9b71c14a6abecdf5a5a40b8d
   <br>
   <button ion-button round (click)="goToIrregularitiesCard()">Cancelar</button>
   <button ion-button round (click)="save()">Enviar</button>
