@@ -137,6 +137,7 @@ $transparent-white: rgba(255, 255, 255, .6);
     border-radius: 10px ;
     -moz-border-radius: 10px ;
     -webkit-border-radius: 10px ;
+    overflow-y: auto;
   .label{
     margin-top: 3%;
     width: 100%;
@@ -146,8 +147,5 @@ $transparent-white: rgba(255, 255, 255, .6);
     border-radius: 10px;
     margin-bottom: 10px;
   }
-  input.ng-valid {
-    background-color:lightgreen;
-}
   }
 }

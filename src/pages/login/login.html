@@ -1,6 +1,4 @@
-
-
-<ion-content  class= "bg-image no-scroll" padding>
+<ion-content class="bg-image no-scroll" padding>
 
   <div padding style="padding-top: 5%;">
 
@@ -18,24 +16,24 @@
                   <ion-list>
                         <ion-item class="input">
                             <ion-label class="label"></ion-label>
-                            <ion-input 
+                            <ion-input
                               class="login-input"
-                              type="email" 
-                              [(ngModel)]="email" 
+                              type="email"
+                              [(ngModel)]="email"
                               formControlName="email"
                               placeholder="Email">
                             </ion-input>
                         </ion-item>
                         <span padding *ngIf="!userForm.controls.email.dirty && (!userForm.controls.email.pristine || userForm.controls.email.valid)"
                           class="error">Informe um email cadastrado</span>
-                        
+
                           <ion-item>
                             <ion-label color="primary"></ion-label>
-                            <ion-input 
-                              class="login-input" 
+                            <ion-input
+                              class="login-input"
                               type="password"
-                               [(ngModel)]="password" 
-                               formControlName="password" 
+                               [(ngModel)]="password"
+                               formControlName="password"
                                placeholder="Senha">
                           </ion-input>
                         </ion-item>

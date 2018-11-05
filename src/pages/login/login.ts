@@ -40,7 +40,7 @@ export class LoginPage {
     });
   }
 
-  login() {
+    login() {
 
     let loading = this.loadingCtrl.create({
       content: 'Aguarde, por favor...'

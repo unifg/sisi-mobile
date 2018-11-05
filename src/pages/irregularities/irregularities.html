@@ -27,6 +27,7 @@
     <ion-label color="primary" stacked>Descrição:</ion-label>
     <ion-input type="story" [(ngModel)]="story"></ion-input>
   </ion-item>
+  <br>
   <button ion-button (click)="getPicture()" color="dark">Tirar Foto</button>
   <img *ngIf="base64Image" [src]="base64Image" />
   <br>

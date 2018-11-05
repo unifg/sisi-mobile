@@ -38,11 +38,11 @@
 
         <ion-item class="border">
             <ion-label color="primary" stacked></ion-label>
-            <ion-input 
-               type="number" 
-               [(ngModel)]="cellphone" 
-               formControlName="cellphone" 
-               placeholder="Celular"> 
+            <ion-input
+               type="number"
+               [(ngModel)]="cellphone"
+               formControlName="cellphone"
+               placeholder="Celular">
             </ion-input>
         </ion-item>
          <span padding *ngIf="!registerForm.controls.cellphone.valid && (!registerForm.controls.cellphone.untouched || registerForm.controls.cellphone.dirty)"
@@ -51,9 +51,9 @@
 
         <ion-item class="border">
             <ion-label color="primary" stacked></ion-label>
-            <ion-input 
-                type="number" 
-                [(ngModel)]="telefone" 
+            <ion-input
+                type="number"
+                [(ngModel)]="telefone"
                 formControlName="telefone"
                 placeholder="Telefone">
             </ion-input>
@@ -64,9 +64,9 @@
 
         <ion-item class="border">
           <ion-label>Data de Nascimento </ion-label>
-          <ion-datetime 
-          displayFormat="DD/MM/YYYY" 
-          [(ngModel)]="birthdate" 
+          <ion-datetime
+          displayFormat="DD/MM/YYYY"
+          [(ngModel)]="birthdate"
           formControlName="birthdate"></ion-datetime>
         </ion-item>
         <span padding *ngIf="!registerForm.controls.birthdate.valid && (!registerForm.controls.birthdate.untouched || registerForm.controls.birthdate.dirty)"
@@ -74,7 +74,7 @@
           <p></p>
           <button ion-button class="button-border" style="background-color:#990000;" (click)="goToRegisterPage()">Voltar</button>
           <button ion-button class="button-border" style="background-color:#990000;">Cadastrar</button>
-  
+
         </form>
 
 </ion-content>

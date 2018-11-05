@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 */
 @Injectable()
 export class IrregularitiesProvider {
-  url: string = "http://209.97.147.27:81/"
+  url: string = "http://104.131.99.239:5050"
   constructor(public http: HttpClient) {
     console.log('Hello IrregularitiesProvider Provider');
   }
