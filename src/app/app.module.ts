@@ -34,6 +34,7 @@ import { IrregularitiesProvider } from '../providers/irregularities/irregulariti
 import { ReperfilPage } from '../pages/reperfil/reperfil';
 
 
+
 @NgModule({
   declarations: [
     MyApp,
