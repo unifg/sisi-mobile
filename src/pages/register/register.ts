@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl, FormControl } from '@angular/forms';
 import { RegisterProvider } from '../../providers/register/register';
 import { UserProvider } from '../../providers/user/user';
 import { ToastController } from 'ionic-angular';
@@ -27,7 +27,6 @@ export class RegisterPage {
   passPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
   phonePattern = '^((\\+91-?)|0)?[0-9]{10}$';
   cpfPattern = '^[0-9]{11}$';
-  telePattern = '^((\\+91-?)|0)?[0-9]{11}$';
 
   constructor(
     public navCtrl: NavController,
@@ -46,12 +45,23 @@ export class RegisterPage {
       birthdate: ['', Validators.required],
       gender: ['', Validators.required],
       cellphone: ['', [Validators.required, Validators.pattern(this.cellpPattern)]],
-      telefone: ['', [Validators.required, Validators.pattern(this.telePattern)]],
+      phone: ['', [Validators.required, Validators.pattern(this.phonePattern)]],
       status: ['ATIVO', Validators.required],
-      confirmPassword: ['', Validators.required],
+      confirmPassword: ['', [Validators.required, this.equalto('password')]],
       skin_color: ['', Validators.required],
     })
   }
+
+  equalto(field_name): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } => {
+        let input = control.value;
+        let isValid = control.root.value[field_name] == input;
+        if (!isValid)
+            return {'equalTo': {isValid}};
+        else
+            return null;
+    };
+}
 
   presentToast() {
     let toast = this.toastCtrl.create({
