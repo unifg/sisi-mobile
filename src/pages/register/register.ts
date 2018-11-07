@@ -5,8 +5,6 @@ import { RegisterProvider } from '../../providers/register/register';
 import { UserProvider } from '../../providers/user/user';
 import { ToastController } from 'ionic-angular';
 import { IUser } from '../../interfaces/IUser';
-import { ReperfilPage } from '../reperfil/reperfil';
-
 
 
 @IonicPage()
@@ -17,7 +15,7 @@ import { ReperfilPage } from '../reperfil/reperfil';
 export class RegisterPage {
 
   user: IUser = { name: '', cpf: '', email: '', password: '', gender: '', skin_color: '', cellphone: '', phone: '', birthdate: '' };
- 
+
   registerForm: FormGroup;
   loading = false;
   submitted;
@@ -29,6 +27,7 @@ export class RegisterPage {
   passPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
   phonePattern = '^((\\+91-?)|0)?[0-9]{10}$';
   cpfPattern = '^[0-9]{11}$';
+  telePattern = '^((\\+91-?)|0)?[0-9]{11}$';
 
   constructor(
     public navCtrl: NavController,
@@ -46,11 +45,14 @@ export class RegisterPage {
       password: ['', [Validators.required, Validators.pattern(this.passPattern)]],
       birthdate: ['', Validators.required],
       gender: ['', Validators.required],
+      cellphone: ['', [Validators.required, Validators.pattern(this.cellpPattern)]],
+      telefone: ['', [Validators.required, Validators.pattern(this.telePattern)]],
       status: ['ATIVO', Validators.required],
-      confirmPassword: ['', Validators.required]
+      confirmPassword: ['', Validators.required],
+      skin_color: ['', Validators.required],
     })
   }
-    
+
   presentToast() {
     let toast = this.toastCtrl.create({
       message: 'Usuário criado com sucesso',
@@ -79,7 +81,9 @@ export class RegisterPage {
       birthdate: this.registerForm.controls.birthdate.value,
       gender: this.registerForm.controls.gender.value,
       cellphone: this.registerForm.controls.cellphone.value,
+      telefone:this.registerForm.controls.telefone.value,
       status: this.registerForm.controls.status.value,
+      skin_color: this.registerForm.controls.skin_color.value
     }
     this.userProvider.addUser(user).subscribe(res => {
       this.registerProvider.registerUser(user);
@@ -88,8 +92,5 @@ export class RegisterPage {
     }, erro => {
       console.log("Erro: " + erro.message);
     });
-  }
-  goToReperfilPage() {
-    this.navCtrl.push(ReperfilPage);
   }
 }

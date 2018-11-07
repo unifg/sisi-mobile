@@ -36,6 +36,7 @@ export class IrregularitiesPage {
     private irregularitiesProvider: IrregularitiesProvider,
     private camera: Camera
   ) {
+
     this.irregularitie_id = navParams.get('irregularitie_id')
     console.log(this.irregularitie_id)
   }
@@ -105,8 +106,11 @@ export class IrregularitiesPage {
       story: this.story,
       coordinates: `${this.lat.toFixed(5)}, ${this.lng.toFixed(5)}`,
       zone_id: 1,
-      irregularity_type_id: this.irregularitie_id
-    }
+      irregularity_type_id: this.irregularitie_id,
+    };
+
+    loading.present();
+
     this.irregularitiesProvider.saveIrregularitie(irregularitie).subscribe(res => {
       loading.dismissAll();
       success.present();

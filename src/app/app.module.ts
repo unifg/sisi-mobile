@@ -31,8 +31,6 @@ import { UserProvider } from '../providers/user/user';
 import { OccurrenceProvider } from '../providers/occurrence/occurrence';
 import { HttpService } from "../http-service/http.service";
 import { IrregularitiesProvider } from '../providers/irregularities/irregularities';
-import { ReperfilPage } from '../pages/reperfil/reperfil';
-
 
 
 @NgModule({
@@ -48,7 +46,6 @@ import { ReperfilPage } from '../pages/reperfil/reperfil';
     OccurrencePage,
     IrregularitiesCardPage,
     IrregularitiesPage,
-    ReperfilPage,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +66,6 @@ import { ReperfilPage } from '../pages/reperfil/reperfil';
     OccurrencePage,
     IrregularitiesCardPage,
     IrregularitiesPage,
-    ReperfilPage,
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
