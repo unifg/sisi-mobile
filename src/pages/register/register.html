@@ -46,10 +46,10 @@
     </ion-item>
     <ion-item no-lines *ngIf="(registerForm.get('confirmPassword').hasError('equalTo') || registerForm.get('confirmPassword').hasError('required') ) && registerForm.get('confirmPassword').touched">
       <div class="error" *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched">
-        <p class="error_message">* Confirm password is required</p>
+        <p class="error_message">* É necessário confirmar a senha</p>
       </div>
       <div class="error" *ngIf="registerForm.get('confirmPassword').hasError('equalTo') && registerForm.get('confirmPassword').touched">
-        <p class="error_message">* Password Mismatch</p>
+        <p class="error_message">* As senhas não estão iguais</p>
       </div>
     </ion-item>
     <p></p>
