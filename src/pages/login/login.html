@@ -16,7 +16,7 @@
           <ion-list>
             <ion-item class="input">
               <ion-label class="label"></ion-label>
-              <ion-input class="login-input" type="email" [(ngModel)]="email" formControlName="email" placeholder="Email">
+              <ion-input  center text-center class="login-input" type="email" [(ngModel)]="email" formControlName="email" placeholder="Email">
               </ion-input>
             </ion-item>
             <span padding *ngIf="!userForm.controls.email.dirty && (!userForm.controls.email.pristine || userForm.controls.email.valid)"
@@ -24,7 +24,7 @@
 
             <ion-item>
               <ion-label color="primary"></ion-label>
-              <ion-input class="login-input" type="password" [(ngModel)]="password" formControlName="password"
+              <ion-input center text-center class="login-input" type="password" [(ngModel)]="password" formControlName="password"
                 placeholder="Senha">
               </ion-input>
             </ion-item>

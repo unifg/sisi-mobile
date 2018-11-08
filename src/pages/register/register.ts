@@ -24,8 +24,8 @@ export class RegisterPage {
 
   namePattern = '^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]{10,52}$';
   cellpPattern = '^((\\+91-?)|0)?[0-9]{11}$';
-  passPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
-  phonePattern = '^((\\+91-?)|0)?[0-9]{10}$';
+  passPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,28}$';
+
   cpfPattern = '^[0-9]{11}$';
 
   constructor(
@@ -45,7 +45,6 @@ export class RegisterPage {
       birthdate: ['', Validators.required],
       gender: ['', Validators.required],
       cellphone: ['', [Validators.required, Validators.pattern(this.cellpPattern)]],
-      phone: ['', [Validators.required, Validators.pattern(this.phonePattern)]],
       status: ['ATIVO', Validators.required],
       confirmPassword: ['', [Validators.required, this.equalto('password')]],
       skin_color: ['', Validators.required],
