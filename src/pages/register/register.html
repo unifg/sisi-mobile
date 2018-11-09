@@ -9,42 +9,46 @@
   <form [formGroup]="registerForm" novalidate>
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="name" [(ngModel)]="user.name" formControlName="name" placeholder="Nome Completo"></ion-input>
+      <ion-input type="text"  maxlength="60" [(ngModel)]="name" formControlName="name" placeholder="Nome Completo"></ion-input>
     </ion-item>
-    <span padding *ngIf="!registerForm.controls.name.valid && (!registerForm.controls.name.untouched || registerForm.controls.name.dirty)"
-      class="error">Informe um nome completo</span>
+    
+      <div class="error" *ngIf="registerForm.controls.name.invalid && registerForm.controls.name.touched && registerForm.controls.name.dirty">
+        <p>Informe um Nome Completo válido</p>
+      </div> 
     <p></p>
 
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="number" [(ngModel)]="user.cpf" formControlName="cpf" placeholder="CPF"></ion-input>
+      <ion-input type="tel" maxlength="11" [(ngModel)]="cpf" formControlName="cpf" placeholder="CPF"></ion-input>
     </ion-item>
-    <span padding *ngIf="!registerForm.controls.cpf.valid && (!registerForm.controls.cpf.untouched || registerForm.controls.cpf.dirty)"
-      class="error">Informe um CPF válido</span>
+    <div *ngIf="registerForm.controls.cpf.invalid && registerForm.controls.cpf.touched && registerForm.controls.cpf.dirty"
+      class="error">Informe um CPF válido</div>
     <p></p>
 
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="email" [(ngModel)]="user.email" formControlName="email" placeholder="Email"></ion-input>
+      <ion-input type="text" maxlength="35" [(ngModel)]="email" formControlName="email" placeholder="Email"></ion-input>
     </ion-item>
-    <span padding *ngIf="!registerForm.controls.email.valid && (!registerForm.controls.email.untouched || registerForm.controls.email.dirty)"
-      class="error">Informe um email válido</span>
+    <div *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched && registerForm.controls.email.dirty"
+      class="error">Informe um email válido</div>
     <p></p>
 
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="password" [(ngModel)]="user.password" formControlName="password" placeholder="Senha"></ion-input>
+      <ion-input type="password" [(ngModel)]="password" formControlName="password" placeholder="Senha"></ion-input>
+     <!-- <ion-icon name="eye" item-right (click)="showHide()"></ion-icon> (botão olho p/ mostrar senha, falta direcionar o btn) -->
+
     </ion-item>
-    <span padding *ngIf="!registerForm.controls.password.valid && (!registerForm.controls.password.untouched || registerForm.controls.password.dirty)"
-      class="error">A Senha deverá ter no mínimo 8 caracteres, contendo números, letras maiúsculas e letras minúsculas</span>
+    <div *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched && registerForm.controls.password.dirty"
+      class="error">A Senha deverá ter no mínimo 8 caracteres, contendo números, letras maiúsculas e letras minúsculas</div>
     <p></p>
 
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="password" [(ngModel)]="registerForm.confirmPassword" formControlName="confirmPassword"
+      <ion-input type="password" [(ngModel)]="confirmPassword" formControlName="confirmPassword"
         placeholder="Confirme Sua Senha"></ion-input>
     </ion-item>
-    <ion-item no-lines *ngIf="(registerForm.get('confirmPassword').hasError('equalTo') || registerForm.get('confirmPassword').hasError('required') ) && registerForm.get('confirmPassword').touched">
+    <ion-item no-lines *ngIf="(registerForm.get('confirmPassword').hasError('equalTo') || registerForm.get('confirmPassword').hasError('dirty') ) && registerForm.get('confirmPassword').touched">
       <div class="error" *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched">
         <p class="error_message">* É necessário confirmar a senha</p>
       </div>
@@ -64,13 +68,13 @@
         <ion-option value="NAO_DECLARADO">Não informado</ion-option>
       </ion-select>
     </ion-item>
-    <span padding *ngIf="!registerForm.controls.gender.valid && (!registerForm.controls.gender.untouched || registerForm.controls.gender.dirty)"
-      class="error">Informe um gênero</span>
+    <div *ngIf="registerForm.controls.gender.invalid && registerForm.controls.gender.touched && registerForm.controls.gender.dirty"
+      class="error">Informe um gênero</div>
     <p></p>
 
     <ion-item class="border">
       <ion-label>Cor</ion-label>
-      <ion-select [(ngModel)]="user.skin_color" formControlName="skin_color">
+      <ion-select [(ngModel)]="skin_color" formControlName="skin_color">
         <ion-option value="BRANCO">Branco</ion-option>
         <ion-option value="PARDO">Pardo</ion-option>
         <ion-option value="NEGRO">Negro</ion-option>
@@ -78,37 +82,36 @@
         <ion-option value="AMARELO">Amarelo</ion-option>
       </ion-select>
     </ion-item>
-    <span padding *ngIf="!registerForm.controls.skin_color.valid && (!registerForm.controls.skin_color.untouched || registerForm.controls.skin_color.dirty)"
-      class="error">Informe um tipo de raça/cor/etinia</span>
+    <div padding *ngIf="registerForm.controls.skin_color.invalid && registerForm.controls.skin_color.touched && registerForm.controls.skin_color.dirty"
+      class="error">Informe um tipo de raça/cor/etinia</div>
     <p></p>
 
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="number" [(ngModel)]="user.cellphone" formControlName="cellphone" placeholder="Celular">
+      <ion-input type="tel" maxlength="11" [(ngModel)]="cellphone" formControlName="cellphone" placeholder="Celular">
       </ion-input>
     </ion-item>
-    <span padding *ngIf="!registerForm.controls.cellphone.valid && (!registerForm.controls.cellphone.untouched || registerForm.controls.cellphone.dirty)"
-      class="error">Informe um número de celular válido</span>
+    <div *ngIf="registerForm.controls.cellphone.invalid && registerForm.controls.cellphone.touched && registerForm.controls.cellphone.dirty"
+      class="error">Informe um número de celular válido</div>
     <p></p>
 
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="number" [(ngModel)]="user.phone" formControlName="phone" placeholder="Telefone">
+      <ion-input type="tel" maxlength="11" placeholder="Telefone">
       </ion-input>
     </ion-item>
-    <span padding *ngIf="!registerForm.controls.phone.valid && (!registerForm.controls.phone.untouched || registerForm.controls.phone.dirty)"
-      class="error">Informe um número de telefone válido</span>
     <p></p>
+
 
     <ion-item class="border">
       <ion-label>Data de Nascimento </ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="user.birthdate" formControlName="birthdate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" max="2004" [(ngModel)]="birthdate" formControlName="birthdate"></ion-datetime>
     </ion-item>
-    <span padding *ngIf="!registerForm.controls.birthdate.valid && (!registerForm.controls.birthdate.untouched || registerForm.controls.birthdate.dirty)"
-      class="error">Este campo é obrigatório</span>
+    <div *ngIf="registerForm.controls.birthdate.invalid && registerForm.controls.birthdate.touched && registerForm.controls.birthdate.dirty"
+      class="error">Este campo é obrigatório</div>
     <p></p>
 
     <button ion-button class="button-border" style="background-color:#990000;" (click)="goToLoginPage()">Cancelar</button>
-    <button ion-button class="button-border" style="background-color:#990000;" (click)="addUser()">Cadastrar</button>
+    <button [disabled]="!registerForm.valid" ion-button class="button-border" style="background-color:#990000;" (click)="addUser()">Cadastrar</button>
   </form>
 </ion-content>
