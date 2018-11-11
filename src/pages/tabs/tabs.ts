@@ -5,6 +5,7 @@ import { OccurrenceCardPage } from '../occurrenceCard/occurrenceCard';
 import { LoginPage }          from "../login/login";
 import { NavController }      from "ionic-angular";
 import { Storage }            from '@ionic/storage';
+import { JoinChatPage } from '../join-chat/join-chat';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -15,6 +16,7 @@ export class TabsPage {
   tab2Root = OccurrenceCardPage;
   tab4Root = LoginPage;
   tab5Root = IrregularitiesCardPage;
+  // tab5Root = JoinChatPage;
 
   constructor(public navCtrl: NavController, private storage: Storage) {
 
