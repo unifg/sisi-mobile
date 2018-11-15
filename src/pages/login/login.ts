@@ -20,6 +20,7 @@ export class LoginPage {
   public userForm: any
   public loginForm: any;
   public backgroundImage = '../assets/img/background/globalbackground.jpg';
+
   tabsPage = TabsPage;
 
   constructor(

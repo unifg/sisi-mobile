@@ -9,17 +9,17 @@
   <form [formGroup]="registerForm" novalidate>
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="text"  maxlength="60" [(ngModel)]="name" formControlName="name" placeholder="Nome Completo"></ion-input>
+      <ion-input type="text"  maxlength="60" [(ngModel)]="user.name" formControlName="name" placeholder="Nome Completo"></ion-input>
     </ion-item>
-    
+
       <div class="error" *ngIf="registerForm.controls.name.invalid && registerForm.controls.name.touched && registerForm.controls.name.dirty">
         <p>Informe um Nome Completo válido</p>
-      </div> 
+      </div>
     <p></p>
 
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="tel" maxlength="11" [(ngModel)]="cpf" formControlName="cpf" placeholder="CPF"></ion-input>
+      <ion-input type="tel" maxlength="11" [(ngModel)]="user.cpf" formControlName="cpf" placeholder="CPF"></ion-input>
     </ion-item>
     <div *ngIf="registerForm.controls.cpf.invalid && registerForm.controls.cpf.touched && registerForm.controls.cpf.dirty"
       class="error">Informe um CPF válido</div>
@@ -27,7 +27,7 @@
 
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="text" maxlength="35" [(ngModel)]="email" formControlName="email" placeholder="Email"></ion-input>
+      <ion-input type="text" maxlength="35" [(ngModel)]="user.email" formControlName="email" placeholder="Email"></ion-input>
     </ion-item>
     <div *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched && registerForm.controls.email.dirty"
       class="error">Informe um email válido</div>
@@ -35,7 +35,7 @@
 
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="password" [(ngModel)]="password" formControlName="password" placeholder="Senha"></ion-input>
+      <ion-input type="password" [(ngModel)]="user.password" formControlName="password" placeholder="Senha"></ion-input>
      <!-- <ion-icon name="eye" item-right (click)="showHide()"></ion-icon> (botão olho p/ mostrar senha, falta direcionar o btn) -->
 
     </ion-item>
@@ -74,7 +74,7 @@
 
     <ion-item class="border">
       <ion-label>Cor</ion-label>
-      <ion-select [(ngModel)]="skin_color" formControlName="skin_color">
+      <ion-select [(ngModel)]="user.skin_color" formControlName="skin_color">
         <ion-option value="BRANCO">Branco</ion-option>
         <ion-option value="PARDO">Pardo</ion-option>
         <ion-option value="NEGRO">Negro</ion-option>
@@ -88,7 +88,7 @@
 
     <ion-item class="border">
       <ion-label color="primary" stacked></ion-label>
-      <ion-input type="tel" maxlength="11" [(ngModel)]="cellphone" formControlName="cellphone" placeholder="Celular">
+      <ion-input type="tel" maxlength="11" [(ngModel)]="user.cellphone" formControlName="cellphone" placeholder="Celular">
       </ion-input>
     </ion-item>
     <div *ngIf="registerForm.controls.cellphone.invalid && registerForm.controls.cellphone.touched && registerForm.controls.cellphone.dirty"
@@ -105,7 +105,7 @@
 
     <ion-item class="border">
       <ion-label>Data de Nascimento </ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" max="2004" [(ngModel)]="birthdate" formControlName="birthdate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" max="2004" [(ngModel)]="user.birthdate" formControlName="birthdate"></ion-datetime>
     </ion-item>
     <div *ngIf="registerForm.controls.birthdate.invalid && registerForm.controls.birthdate.touched && registerForm.controls.birthdate.dirty"
       class="error">Este campo é obrigatório</div>
