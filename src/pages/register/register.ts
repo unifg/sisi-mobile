@@ -18,6 +18,8 @@ export class RegisterPage {
 
   registerForm: FormGroup;
   loading = false;
+  public type = 'password';
+  public showPass = false;
   submitted;
 
 //validator patterns
@@ -49,6 +51,16 @@ export class RegisterPage {
       confirmPassword: ['', [Validators.required, this.equalto('password')]],
       skin_color: ['', Validators.required],
     })
+  }
+
+  showPassword() {
+    this.showPass = !this.showPass;
+
+    if(this.showPass){
+      this.type = 'text';
+    } else {
+      this.type = 'password';
+    }
   }
 
   equalto(field_name): ValidatorFn {

@@ -22,6 +22,7 @@ export class OccurrencePage {
   private lng: number;
   public occurrence_id: number;
   public occurrenceForm: any;
+  public test: any;
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -37,7 +38,7 @@ export class OccurrencePage {
 
     this.occurrence_id = navParams.get('occurrence_id');
     this.occurrenceForm = this.formBuilder.group({
-      title: ['', Validators.compose([Validators.required, Validators.maxLength(250)])],
+      title: ['', Validators.compose([Validators.required, Validators.maxLength(20)])],
       story: [null, Validators.required],
       occurrence_date: ['', Validators.compose([Validators.required, Validators.email])],
       occurrence_time: ['', Validators.required],

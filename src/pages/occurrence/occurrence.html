@@ -16,23 +16,28 @@
     <br> -->
   <form [formGroup]="occurrenceForm" novalidate>
     <ion-item>
-      <ion-label color="primary" stacked>Breve Descrição do Ocorrido:</ion-label>
-      <ion-input type="title" formControlName="title" placeholder="Até 280 caracteres"></ion-input>
+      <ion-input type="title" formControlName="title" placeholder="Título (20 Caracteres)"></ion-input>
     </ion-item>
     <br>
     <ion-item>
-      <ion-label color="primary" stacked>Relatar o máximo de informação possivel:</ion-label>
-      <ion-input type="story" formControlName="story" placeholder="Algumas informações como roupa, altura, cor de pele, quantas pessoas, qualquer informação que tiver para auxiliar."></ion-input>
+    <ion-textarea placeholder="Descrição da ocorrência"></ion-textarea>
     </ion-item>
     <br>
     <ion-item>
-      <ion-label color="primary" stacked>Data</ion-label>
-      <ion-input type="date" formControlName="occurrence_date" placeholder="Informar a data:"></ion-input>
+      <ion-label>Objeto Envolvido</ion-label>
+      <ion-select [(ngModel)]="gender">
+        <ion-option value="f">Female</ion-option>
+        <ion-option value="m">Male</ion-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-input type="date" formControlName="occurrence_date" ></ion-input>
     </ion-item>
     <br>
     <ion-item>
       <ion-label color="primary" stacked>Horário</ion-label>
-      <ion-input type="time" formControlName="occurrence_time" placeholder="Horário do ocorrido"></ion-input>
+      <ion-input type="time" formControlName="occurrence_time"></ion-input>
     </ion-item>
     <br>
     <!--<ion-list>-->
