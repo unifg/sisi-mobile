@@ -47,6 +47,7 @@ export class RegisterPage {
       birthdate: ['', Validators.required],
       gender: ['', Validators.required],
       cellphone: ['', [Validators.required, Validators.pattern(this.cellpPattern)]],
+      telefone: [''],
       status: ['ATIVO', Validators.required],
       confirmPassword: ['', [Validators.required, this.equalto('password')]],
       skin_color: ['', Validators.required],
@@ -94,6 +95,7 @@ export class RegisterPage {
 
 
   addUser() {
+    console.log(this.registerForm);
     let user = {
       name: this.registerForm.controls.name.value,
       cpf: this.registerForm.controls.cpf.value,
@@ -106,6 +108,7 @@ export class RegisterPage {
       status: this.registerForm.controls.status.value,
       skin_color: this.registerForm.controls.skin_color.value
     }
+    console.log(user);
     this.userProvider.addUser(user).subscribe(res => {
       this.registerProvider.registerUser(user);
       this.presentToast();
