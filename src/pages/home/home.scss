@@ -4,7 +4,7 @@
 }
 .toolbar-background-md {
   border-color: #b2b2b2;
-  background: #222;
+  background: #990000;
 }
 .toolbar-title-md {
   color: #FFFFFF;
@@ -29,5 +29,17 @@
   background-color: #990000;
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21), 0 0 0 0 transparent;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21), 0 0 0 0 transparent;
+}
+.style-nav {
+  justify-content: center;
+  align-items: center;
+}
+.titleicon {
+  align-content: center;
+  align-items: center;
+}
+.style-title {
+margin: center;
+padding: 10px;
 }
 

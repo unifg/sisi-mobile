@@ -5,11 +5,28 @@ page-ocorrencia {
   }
   .toolbar-background-md {
     border-color: #b2b2b2;
-    background: #222;
+    background: #990000;
+  }
+  .toolbar-md{
+    width: 100px;
   }
   .toolbar-title-md {
     color: #FFFFFF;
   }
+}
+.style-nav {
+  justify-content: center;
+  align-items: center;
+}
+.titleicon {
+  align-content: center;
+  align-items: center;
+  float: left;
+}
+.style-title {
+  text-align: left;
+  padding: 4px;
+  margin-top: 2%;
 
 
 }
